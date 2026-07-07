@@ -1,22 +1,132 @@
-# Sprint 0 - Project Setup
+# Progress Bar Development Tasks
 
-## Goal
+---
 
-Prepare a professional development environment and project foundation.
+## Current Sprint
 
-## Todo
+### Project Setup
 
-- [ ] Install Node.js
-- [ ] Initialize React with Vite
-- [ ] Initialize Go backend
-- [ ] Configure Docker Compose
-- [ ] Create project structure
-- [ ] Write project documentation
-
-## Done
-
-- [x] Create GitHub repository
+- [x] Create repository
 - [x] Clone repository
-- [x] Install Docker Desktop
-- [x] Configure Docker + WSL
-- [x] Configure VS Code WSL
+- [x] Install Node.js
+- [x] Install npm
+- [x] Install Docker
+- [x] Configure Docker permissions
+- [x] Create React project
+- [x] Understand Vite structure
+- [x] Remove starter template
+
+---
+
+## Architecture
+
+- [x] Create folder structure
+
+Folders
+
+- [x] assets
+- [x] components
+- [x] layouts
+- [x] pages
+- [x] services
+- [x] hooks
+- [x] context
+- [x] utils
+- [x] styles
+
+---
+
+## Routing
+
+- [ ] Install React Router
+- [ ] Configure BrowserRouter
+- [ ] Configure Routes
+- [ ] Configure Route components
+- [ ] Learn Link
+- [ ] Test navigation
+
+---
+
+## Pages
+
+- [ ] Login
+- [ ] Register
+- [ ] Home
+- [ ] My Why
+- [ ] Personal Projects
+- [ ] Professional Projects
+- [ ] Self Learning
+- [ ] Courses
+- [ ] Open Source
+- [ ] Networking
+- [ ] Career
+- [ ] Team Collaboration
+- [ ] Profile
+- [ ] Settings
+
+---
+
+## Components
+
+- [ ] Sidebar
+- [ ] Header
+- [ ] Goal Tile
+- [ ] Reminder Card
+- [ ] Empty State
+- [ ] Quote Card
+- [ ] Category Card
+- [ ] Progress Entry Form
+- [ ] Button
+- [ ] Input
+- [ ] Modal
+
+---
+
+## Styling
+
+- [ ] Global styles
+- [ ] Sidebar styles
+- [ ] Responsive layout
+- [ ] Mobile support
+- [ ] Light theme
+
+---
+
+## Learning Tasks
+
+JavaScript
+
+- [ ] Variables
+- [ ] Objects
+- [ ] Arrays
+- [ ] Functions
+- [ ] Array methods
+- [ ] Modules
+- [ ] Async/Await
+
+React
+
+- [ ] JSX
+- [ ] Components
+- [ ] Props
+- [ ] State
+- [ ] Events
+- [ ] Forms
+- [ ] Conditional rendering
+- [ ] Lists
+- [ ] Hooks
+- [ ] Context
+
+Backend
+
+- [ ] Go API
+- [ ] PostgreSQL
+- [ ] JWT
+- [ ] File uploads
+
+---
+
+## Git
+
+- [ ] Commit project cleanup
+- [ ] Push changes
