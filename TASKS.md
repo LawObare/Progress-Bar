@@ -40,8 +40,8 @@ Folders
 
 - [x] Install React Router
 - [x] Configure BrowserRouter
-- [ ] Configure Routes
-- [ ] Configure Route components
+- [x] Configure Routes
+- [x] Configure Route components
 - [ ] Learn Link
 - [ ] Test navigation
 
@@ -96,10 +96,10 @@ Folders
 
 JavaScript
 
-- [ ] Variables
-- [ ] Objects
-- [ ] Arrays
-- [ ] Functions
+- [x] Variables
+- [x] Objects
+- [x] Arrays
+- [x] Functions
 - [ ] Array methods
 - [ ] Modules
 - [ ] Async/Await

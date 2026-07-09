@@ -33,8 +33,8 @@ Build the application's navigation and page structure.
 
 - [x] Install React Router
 - [x] Configure application routes
-- [ ] Create Dashboard Layout
-- [ ] Create Sidebar component
+- [x] Create Dashboard Layout
+- [x] Create Sidebar component
 - [ ] Add page navigation
 - [ ] Create empty pages
 - [ ] Add responsive sidebar
