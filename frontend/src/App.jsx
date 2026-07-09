@@ -1,4 +1,10 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { 
+  BrowserRouter, 
+  Routes, 
+  Route, 
+  Navigate,
+ } from "react-router-dom";
+ 
 import Career from "./pages/Career";
 import Courses from "./pages/Courses";
 import DashboardLayout from "./layouts/DashboardLayout";
@@ -20,6 +26,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           {/*Public Route*/}
+          <Route path="/" element={<Navigate to="/home" replace />} />
           <Route path="/login" element={<Login />} />
 
           {/*Private Route*/}
