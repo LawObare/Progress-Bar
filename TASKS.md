@@ -38,8 +38,8 @@ Folders
 
 ## Routing
 
-- [ ] Install React Router
-- [ ] Configure BrowserRouter
+- [x] Install React Router
+- [x] Configure BrowserRouter
 - [ ] Configure Routes
 - [ ] Configure Route components
 - [ ] Learn Link

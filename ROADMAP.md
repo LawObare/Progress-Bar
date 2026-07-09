@@ -4,7 +4,7 @@
 
 ---
 
-# Phase 1 — Foundation ✅
+# Phase 1 — Foundation
 
 Goal:
 Set up a modern frontend development environment.
@@ -31,8 +31,8 @@ Build the application's navigation and page structure.
 
 ## Milestones
 
-- [ ] Install React Router
-- [ ] Configure application routes
+- [x] Install React Router
+- [x] Configure application routes
 - [ ] Create Dashboard Layout
 - [ ] Create Sidebar component
 - [ ] Add page navigation
