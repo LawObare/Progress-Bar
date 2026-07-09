@@ -2,7 +2,7 @@ function MyWhy() {
     return (
         <>
             <main>
-                <h1>Why Us</h1>
+                <h1>My Why</h1>
             </main>
         </>
     );

@@ -1,13 +1,14 @@
 import navigation from "../data/navigation";
 import NavItem from "./NavItem";
+import "../styles/sidebar.css";
 
 function Sidebar() {
     return (
-        <aside>
-            <nav>
+        <aside className="Sidebar">
+            <nav className="Sidebar-nav">
                  <div className="Sidebar-logo">
-                    <h1>Progress Bar</h1>
-                    </div>
+                    <h2>Progress Bar</h2>
+                 </div>
             
                  <ul>
                       {navigation.map((item) => (
