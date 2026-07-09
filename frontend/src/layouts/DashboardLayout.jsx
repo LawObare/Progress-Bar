@@ -5,13 +5,16 @@ import Header from "../components/Header";
 function DashboardLayout() {
     return (
         <>
-            <Sidebar />
 
             <Header/>
 
-            <main>
-                <Outlet />
-            </main>
+            <div className="Dashboard-container">
+                <Sidebar />
+
+                 <main className="Dashboard-content">
+                     <Outlet />
+                 </main>
+            </div>
         </>
     );
 }
