@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Career from "./pages/Career";
 import Courses from "./pages/Courses";
+import DashboardLayout from "./layouts/DashboardLayout";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import MyWhy from "./pages/MyWhy";
@@ -18,8 +19,24 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/home" element={<Home />} />
+          {/*Public Route*/}
+          <Route path="/login" element={<Login />} />
+
+          {/*Private Route*/}
+          <Route element={<DashboardLayout />}>
+            <Route path="/home" element={<Home />} />
+            <Route path="/career" element={<Career />} />
+            <Route path="/courses" element={<Courses />} />
+            <Route path="/my-why" element={<MyWhy />} />
+            <Route path="/networking" element={<Networking />} />
+            <Route path="/opensource" element={<OpenSource />} />
+            <Route path="/personalprojects" element={<PersonalProjects />} />
+            <Route path="/professionalprojects" element={<ProfessionalProjects />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/selflearning" element={<SelfLearning />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/teamcollaboration" element={<TeamCollaboration />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </>
