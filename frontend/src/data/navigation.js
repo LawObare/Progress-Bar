@@ -32,8 +32,8 @@ const navigation = [
         path: "/personalprojects",
     },
     {
-        label: "Professional Projects",
-        path: "/professionalprojects",
+        label: "Client Projects",
+        path: "/clientprojects",
     },
     {
         label: "Profile",

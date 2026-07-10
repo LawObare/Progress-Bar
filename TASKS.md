@@ -42,8 +42,8 @@ Folders
 - [x] Configure BrowserRouter
 - [x] Configure Routes
 - [x] Configure Route components
-- [ ] Learn Link
-- [ ] Test navigation
+- [x] Learn Link
+- [x] Test navigation
 
 ---
 

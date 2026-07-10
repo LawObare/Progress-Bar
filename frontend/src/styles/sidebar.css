@@ -1,50 +1,70 @@
 .Sidebar {
+  width: var(--sidebar-width);
+  min-height: 100vh;
 
-    width: 260px;
+  background: var(--color-sidebar);
+  color: var(--color-text);
 
-    min-height: 100vh;
+  padding: var(--space-lg);
 
-    border-right: 1px solid #e5e5e5;
-
-    padding: 24px;
+  border-right: 1px solid var(--color-border);
 }
 
 .Sidebar-logo {
+  margin-bottom: var(--space-xl);
+}
 
-    margin-bottom: 40px;
+.Sidebar-logo h2 {
+  margin: 0;
+  padding-left: var(--space-md);
+
+  text-align: left;
+
+  color: var(--color-text);
 }
 
 .navigation-list {
+  list-style: none;
 
-    list-style: none;
+  margin: 0;
+  padding: 0;
 
-    padding: 0;
+  display: flex;
+  flex-direction: column;
 
-    margin: 0;
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 8px;
+  gap: var(--space-sm);
 }
 
-.navigation-list a {
-
-    display:block;
-
-    padding:12px 16px;
-
-    border-radius:8px;
-
-    text-decoration:none;
-
-    color:#444;
-
-    transition:0.2s;
+.Sidebar-nav {
+  padding-left: var(--space-md);
 }
 
-.navigation-list a:hover {
+.Sidebar-nav ul {
+    list-style-type: none;
+}
+.Sidebar-nav a {
+  display: flex;
+  align-items: center;
 
-    background:#f5f5f5;
+  padding: 12px 16px;
+
+  text-decoration: none;
+
+  color: var(--color-text-muted);
+
+  border-radius: var(--radius-md);
+
+  transition:
+    background-color var(--transition-normal),
+    color var(--transition-normal);
+}
+
+.Sidebar-nav a:hover {
+  background: var(--color-card);
+  color: var(--color-text);
+}
+
+.Sidebar-nav a.active {
+  background: var(--color-primary);
+  color: var(--color-text);
 }

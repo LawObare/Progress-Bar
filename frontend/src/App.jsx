@@ -14,7 +14,7 @@ import MyWhy from "./pages/MyWhy";
 import Networking from "./pages/Networking";
 import OpenSource from "./pages/OpenSource";
 import PersonalProjects from "./pages/PersonalProjects";
-import ProfessionalProjects from "./pages/ProfessionalProjects";
+import ClientProjects from "./pages/ClientProjects";
 import Profile from "./pages/Profile";
 import SelfLearning from "./pages/SelfLearning";
 import Settings from "./pages/Settings";
@@ -38,7 +38,7 @@ function App() {
             <Route path="/networking" element={<Networking />} />
             <Route path="/opensource" element={<OpenSource />} />
             <Route path="/personalprojects" element={<PersonalProjects />} />
-            <Route path="/professionalprojects" element={<ProfessionalProjects />} />
+            <Route path="/clientprojects" element={<ClientProjects />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/selflearning" element={<SelfLearning />} />
             <Route path="/settings" element={<Settings />} />
