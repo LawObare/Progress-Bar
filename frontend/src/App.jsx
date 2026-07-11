@@ -6,7 +6,6 @@ import {
  } from "react-router-dom";
  
 import Career from "./pages/Career";
-import Courses from "./pages/Courses";
 import DashboardLayout from "./layouts/DashboardLayout";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -18,7 +17,6 @@ import ClientProjects from "./pages/ClientProjects";
 import Profile from "./pages/Profile";
 import SelfLearning from "./pages/SelfLearning";
 import Settings from "./pages/Settings";
-import TeamCollaboration from "./pages/TeamCollaboration";
 
 function App() {
   return (
@@ -33,7 +31,6 @@ function App() {
           <Route element={<DashboardLayout />}>
             <Route path="/home" element={<Home />} />
             <Route path="/career" element={<Career />} />
-            <Route path="/courses" element={<Courses />} />
             <Route path="/my-why" element={<MyWhy />} />
             <Route path="/networking" element={<Networking />} />
             <Route path="/opensource" element={<OpenSource />} />
@@ -42,7 +39,6 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/selflearning" element={<SelfLearning />} />
             <Route path="/settings" element={<Settings />} />
-            <Route path="/teamcollaboration" element={<TeamCollaboration />} />
           </Route>
         </Routes>
       </BrowserRouter>

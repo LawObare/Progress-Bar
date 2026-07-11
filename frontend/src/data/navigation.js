@@ -4,10 +4,6 @@ const navigation = [
         path: "/career",
     },
     {
-        label: "Courses",
-        path: "/courses",
-    },
-    {
         label: "Home",
         path: "/home"
     },
@@ -46,10 +42,6 @@ const navigation = [
     {
         label: "Settings",
         path: "/settings",
-    },
-    {
-        label: "Team Collaboration",
-        path: "/teamcollaboration",
     },
 ];
 
