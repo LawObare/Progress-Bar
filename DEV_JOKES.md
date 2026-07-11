@@ -7,6 +7,4 @@
 
 -feat(sleep): recharge developer for tomorrow's sprint
 
--$ git status
-
-On branch main, nothing to commit, working tree clean.Goodnight.
+-$ git status, On branch main, nothing to commit, working tree clean. Goodnight.

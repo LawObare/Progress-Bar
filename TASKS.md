@@ -46,7 +46,17 @@ Folders
 - [x] Test navigation
 
 ---
+Sprint 3: Build the Foundation
 
+□ Create variables.css
+□ Convert sidebar.css to design tokens
+□ Build the application shell using CSS Grid
+□ Create the Header component
+□ Style the Header
+□ Build the first reusable Card component
+□ Build the Home page
+□ Polish the UI
+□ Push to GitHub
 ## Pages
 
 - [ ] Login

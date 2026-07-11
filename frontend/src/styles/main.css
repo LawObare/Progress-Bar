@@ -1,0 +1,7 @@
+.Main {
+  grid-area: main;
+
+  padding: 32px;
+
+  overflow-y: auto;
+}

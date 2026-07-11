@@ -1,7 +1,9 @@
+import "../styles/header.css";
+
 function Header() {
     return (
-        <header>
-            Header
+        <header className="Header">
+            <h1>Home</h1>
         </header>
     );
 }

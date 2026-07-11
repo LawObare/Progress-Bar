@@ -35,8 +35,8 @@ Build the application's navigation and page structure.
 - [x] Configure application routes
 - [x] Create Dashboard Layout
 - [x] Create Sidebar component
-- [ ] Add page navigation
-- [ ] Create empty pages
+- [x] Add page navigation
+- [x] Create empty pages
 - [ ] Add responsive sidebar
 
 Deliverable:
