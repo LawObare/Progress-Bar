@@ -1,6 +1,7 @@
 @import "./sidebar.css";
 @import "./header.css";
 @import "./main.css";
+@import "./components.css";
 
 .dashboard-layout {
   display: grid;

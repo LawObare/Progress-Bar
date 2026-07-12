@@ -1,0 +1,150 @@
+/* =====================================================
+   CAREER PAGE
+   ===================================================== */
+
+.Career {
+  max-width: 800px;
+}
+
+.Career-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.Career-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md);
+  cursor: pointer;
+}
+
+.Career-card:hover {
+  border-color: var(--primary);
+}
+
+.Career-card-body {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  min-width: 0;
+}
+
+.Career-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.Career-card-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.Career-card-meta {
+  display: flex;
+  gap: var(--space-md);
+  font-size: 0.78rem;
+}
+
+.Career-card-type {
+  color: var(--primary);
+}
+
+.Career-card-deadline {
+  color: var(--text-secondary);
+}
+
+.Career-card-chevron {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+/* ─── Create Form ─── */
+.Career-create-card {
+  max-width: 600px;
+  padding: var(--space-lg);
+}
+
+.Career-create-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: var(--space-lg);
+}
+
+.Career-create-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.Career-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.Career-field label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.Career-opt {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.Career-field input,
+.Career-field textarea {
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  padding: 10px 12px;
+  font-family: inherit;
+  font-size: 0.875rem;
+  transition: border-color var(--transition-fast);
+  resize: vertical;
+}
+
+.Career-field input:focus,
+.Career-field textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.Career-field input::placeholder,
+.Career-field textarea::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.6;
+}
+
+.Career-types {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-sm) 0;
+}
+
+.Career-type-radio {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 0.85rem;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.Career-type-radio input[type="radio"] {
+  accent-color: var(--primary);
+}
+
+.Career-create-actions {
+  display: flex;
+  gap: var(--space-sm);
+}

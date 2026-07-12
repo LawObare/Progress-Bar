@@ -1,0 +1,302 @@
+/* =====================================================
+   HOME PAGE (Dashboard)
+   ===================================================== */
+
+.Home {
+  max-width: 800px;
+}
+
+/* ─── Greeting ─── */
+.Home-greeting {
+  margin-bottom: var(--space-lg);
+}
+
+.Home-greeting h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: var(--space-xs);
+}
+
+.Home-greeting p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* ─── Task Card ─── */
+.TaskCard {
+  margin-bottom: var(--space-sm);
+}
+
+.TaskCard:last-child {
+  margin-bottom: 0;
+}
+
+.TaskCard-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-xs);
+}
+
+.TaskCard-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.TaskCard-priority {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.TaskCard-priority--urgent {
+  background: color-mix(in srgb, var(--danger) 20%, transparent);
+  color: var(--danger);
+}
+
+.TaskCard-priority--high {
+  background: color-mix(in srgb, var(--warning) 20%, transparent);
+  color: var(--warning);
+}
+
+.TaskCard-priority--medium {
+  background: color-mix(in srgb, var(--primary) 20%, transparent);
+  color: var(--primary);
+}
+
+.TaskCard-priority--low {
+  background: color-mix(in srgb, var(--text-secondary) 20%, transparent);
+  color: var(--text-secondary);
+}
+
+.TaskCard-meta {
+  display: flex;
+  gap: var(--space-md);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-xs);
+}
+
+.TaskCard-category {
+  color: var(--primary);
+}
+
+/* ─── Attention Card ─── */
+.AttentionCard {
+  margin-bottom: var(--space-sm);
+  border-color: color-mix(in srgb, var(--danger) 30%, var(--border));
+}
+
+.AttentionCard:last-child {
+  margin-bottom: 0;
+}
+
+.AttentionCard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-sm);
+}
+
+.AttentionCard-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.AttentionCard-overdue {
+  font-size: 0.75rem;
+  color: var(--danger);
+  font-weight: 500;
+}
+
+/* ─── Routine Card ─── */
+.RoutineCard {
+  margin-bottom: var(--space-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.RoutineCard:last-child {
+  margin-bottom: 0;
+}
+
+.RoutineCard-check {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  cursor: pointer;
+}
+
+.RoutineCard-checkbox {
+  margin-top: 3px;
+  width: 16px;
+  height: 16px;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+.RoutineCard-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.RoutineCard-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.RoutineCard-meta {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.RoutineCard-next {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-left: calc(var(--space-sm) + 16px);
+}
+
+/* ─── Event Card ─── */
+.EventCard {
+  margin-bottom: var(--space-sm);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.EventCard:last-child {
+  margin-bottom: 0;
+}
+
+.EventCard-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.EventCard-name {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.EventCard-date {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.EventCard-days {
+  font-size: 0.78rem;
+  color: var(--primary);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* ─── Dev Wisdom ─── */
+.DevWisdom {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  background: color-mix(in srgb, var(--primary) 8%, var(--surface));
+  border-color: color-mix(in srgb, var(--primary) 20%, var(--border));
+}
+
+.DevWisdom-icon {
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+.DevWisdom-quote {
+  font-size: 0.9rem;
+  color: var(--text);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* ─── Home Section spacing ─── */
+.Home-section {
+  margin-bottom: var(--space-xl);
+}
+
+.Home-section:last-child {
+  margin-bottom: 0;
+}
+
+.Home-empty {
+  text-align: center;
+  padding: var(--space-xl) 0;
+  color: var(--text-secondary);
+}
+
+.Home-empty p {
+  margin-bottom: var(--space-sm);
+}
+
+/* ─── Home quick-create goal ─── */
+.Home-create-card {
+  max-width: 600px;
+  padding: var(--space-lg);
+}
+
+.Home-create-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: var(--space-lg);
+}
+
+.Home-create-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.Home-create-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.Home-create-field label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.Home-create-field input,
+.Home-create-field select {
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  padding: 10px 12px;
+  font-family: inherit;
+  font-size: 0.875rem;
+  transition: border-color var(--transition-fast);
+}
+
+.Home-create-field input:focus,
+.Home-create-field select:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.Home-create-field input::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.6;
+}
+
+.Home-create-actions {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: var(--space-xs);
+}

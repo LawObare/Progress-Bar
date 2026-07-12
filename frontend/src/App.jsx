@@ -9,6 +9,7 @@ import Career from "./pages/Career";
 import DashboardLayout from "./layouts/DashboardLayout";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import Register from "./pages/Register";
 import MyWhy from "./pages/MyWhy";
 import Networking from "./pages/Networking";
 import OpenSource from "./pages/OpenSource";
@@ -26,6 +27,7 @@ function App() {
           {/*Public Route*/}
           <Route path="/" element={<Navigate to="/home" replace />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
 
           {/*Private Route*/}
           <Route element={<DashboardLayout />}>

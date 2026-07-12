@@ -1,0 +1,160 @@
+/* =====================================================
+   SHARED COMPONENTS
+   ===================================================== */
+
+/* ─── Card ─── */
+.Card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.Card--clickable {
+  cursor: pointer;
+}
+
+.Card--clickable:hover {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 1px var(--primary);
+}
+
+/* ─── Button ─── */
+.Btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.Btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.Btn--sm { padding: 6px 12px; font-size: 0.8rem; }
+.Btn--md { padding: 8px 16px; font-size: 0.875rem; }
+.Btn--lg { padding: 10px 20px; font-size: 1rem; }
+
+.Btn--primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+.Btn--primary:hover:not(:disabled) {
+  background: var(--primary-hover);
+}
+
+.Btn--secondary {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--text-secondary);
+}
+
+.Btn--secondary:hover:not(:disabled) {
+  border-color: var(--text-secondary);
+  color: var(--text);
+}
+
+.Btn--ghost {
+  background: transparent;
+  color: var(--text-secondary);
+}
+
+.Btn--ghost:hover:not(:disabled) {
+  color: var(--text);
+  background: var(--surface);
+}
+
+.Btn--danger {
+  background: var(--danger);
+  color: #fff;
+}
+
+.Btn--danger:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+/* ─── Progress Bar ─── */
+.ProgressBar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.ProgressBar-label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  min-width: 48px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.ProgressBar-track {
+  flex: 1;
+  height: 6px;
+  background: var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.ProgressBar-fill {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 3px;
+  transition: width var(--transition-normal);
+}
+
+/* ─── Status Dot ─── */
+.StatusDot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.StatusDot--green { background: var(--success); }
+.StatusDot--yellow { background: var(--warning); }
+.StatusDot--gray { background: var(--text-secondary); }
+
+/* ─── Section Header ─── */
+.SectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-md);
+}
+
+.SectionHeader-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.SectionHeader-icon {
+  font-size: 1.1rem;
+}
+
+.SectionHeader-action {
+  font-size: 0.8rem;
+  color: var(--primary);
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.SectionHeader-action:hover {
+  text-decoration: underline;
+}

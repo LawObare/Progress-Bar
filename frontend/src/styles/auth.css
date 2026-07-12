@@ -1,0 +1,144 @@
+/* =====================================================
+   AUTH PAGES (Login & Register)
+   ===================================================== */
+
+.Auth {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+  background: var(--background);
+}
+
+.Auth-card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+}
+
+.Auth-brand {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.Auth-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: var(--space-xs);
+}
+
+.Auth-tagline {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.Auth-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text);
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.Auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.Auth-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.Auth-field label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.Auth-field input {
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  padding: 12px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  transition: border-color var(--transition-fast);
+}
+
+.Auth-field input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.Auth-field input::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.5;
+}
+
+.Auth-remember {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.Auth-remember input[type="checkbox"] {
+  accent-color: var(--primary);
+  width: 16px;
+  height: 16px;
+}
+
+.Auth-submit {
+  width: 100%;
+  margin-top: var(--space-xs);
+}
+
+.Auth-divider {
+  height: 1px;
+  background: var(--border);
+  margin: var(--space-lg) 0;
+}
+
+.Auth-switch {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-md);
+}
+
+.Auth-link {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.Auth-link:hover {
+  text-decoration: underline;
+}
+
+.Auth-footer-quote {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.Auth-warning {
+  font-size: 0.78rem;
+  color: var(--warning);
+  line-height: 1.6;
+  padding: var(--space-sm);
+  border: 1px solid color-mix(in srgb, var(--warning) 30%, transparent);
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--warning) 8%, transparent);
+}

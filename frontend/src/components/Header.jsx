@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../styles/header.css";
 
 function Header({ onToggleSidebar }) {
@@ -14,9 +15,9 @@ function Header({ onToggleSidebar }) {
       </div>
 
       <div className="Header-actions">
-        <button className="Header-avatar" title="Profile">
+        <Link to="/profile" className="Header-avatar" title="Profile">
           <span className="Header-avatar-inner">U</span>
-        </button>
+        </Link>
       </div>
     </header>
   );

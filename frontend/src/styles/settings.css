@@ -1,0 +1,108 @@
+/* =====================================================
+   SETTINGS PAGE
+   ===================================================== */
+
+.Settings {
+  max-width: 700px;
+}
+
+.Settings-card {
+  padding: var(--space-xl);
+}
+
+.Settings-section {
+  margin-bottom: 0;
+}
+
+.Settings-section h3 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: var(--space-md);
+}
+
+.Settings-subsection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.Settings-label {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.Settings-radios {
+  display: flex;
+  gap: var(--space-lg);
+}
+
+.Settings-radio {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 0.85rem;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.Settings-radio input[type="radio"] {
+  accent-color: var(--primary);
+}
+
+.Settings-checkboxes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.Settings-checkbox {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 0.85rem;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.Settings-checkbox input[type="checkbox"] {
+  accent-color: var(--primary);
+  width: 16px;
+  height: 16px;
+}
+
+.Settings-hint {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-top: var(--space-sm);
+  padding-left: calc(16px + var(--space-sm));
+}
+
+.Settings-danger-title {
+  color: var(--danger) !important;
+}
+
+.Settings-danger-desc {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-md);
+}
+
+.Settings-about-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.Settings-about-version {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.Settings-divider {
+  height: 1px;
+  background: var(--border);
+  margin: var(--space-lg) 0;
+}

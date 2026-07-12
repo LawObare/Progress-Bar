@@ -1,0 +1,103 @@
+/* =====================================================
+   MY WHY PAGE
+   ===================================================== */
+
+.MyWhy {
+  max-width: 700px;
+}
+
+.MyWhy-card {
+  padding: var(--space-xl);
+}
+
+.MyWhy-quote {
+  text-align: center;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--primary);
+  margin-bottom: var(--space-xl);
+  font-weight: 500;
+}
+
+.MyWhy-section {
+  margin-bottom: var(--space-md);
+}
+
+.MyWhy-section h3 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: var(--space-sm);
+}
+
+.MyWhy-section textarea {
+  width: 100%;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  padding: var(--space-md);
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  resize: vertical;
+  transition: border-color var(--transition-fast);
+}
+
+.MyWhy-section textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.MyWhy-section textarea::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.5;
+}
+
+.MyWhy-text {
+  font-size: 0.9rem;
+  color: var(--text);
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.MyWhy-mantra-input {
+  width: 100%;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  padding: 12px var(--space-md);
+  font-family: inherit;
+  font-size: 1rem;
+  text-align: center;
+  transition: border-color var(--transition-fast);
+}
+
+.MyWhy-mantra-input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.MyWhy-mantra-input::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.5;
+}
+
+.MyWhy-mantra-text {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.MyWhy-divider {
+  height: 1px;
+  background: var(--border);
+  margin: var(--space-lg) 0;
+}
+
+.MyWhy-save-row {
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,118 @@
+/* =====================================================
+   PROFILE PAGE
+   ===================================================== */
+
+.Profile {
+  max-width: 700px;
+}
+
+.Profile-card {
+  padding: var(--space-xl);
+}
+
+/* ─── Avatar ─── */
+.Profile-avatar-section {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.Profile-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-md);
+}
+
+.Profile-avatar-letter {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.Profile-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* ─── Bio ─── */
+.Profile-section {
+  margin-bottom: 0;
+}
+
+.Profile-section h3 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: var(--space-sm);
+}
+
+.Profile-bio-text {
+  font-size: 0.9rem;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.Profile-bio-input {
+  width: 100%;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  padding: var(--space-md);
+  font-family: inherit;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  resize: vertical;
+  transition: border-color var(--transition-fast);
+}
+
+.Profile-bio-input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+/* ─── Journey Stats ─── */
+.Profile-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.Profile-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.Profile-stat-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.Profile-stat-label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+/* ─── Quote ─── */
+.Profile-quote {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.Profile-divider {
+  height: 1px;
+  background: var(--border);
+  margin: var(--space-lg) 0;
+}

@@ -1,0 +1,437 @@
+/* =====================================================
+   PROJECTS PAGE (Shared: Personal & Client)
+   ===================================================== */
+
+.ProjectList {
+  max-width: 800px;
+}
+
+.ProjectList-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+/* ─── Project Card ─── */
+.ProjectCard {
+  padding: 0;
+  overflow: hidden;
+}
+
+.ProjectCard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-md);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.ProjectCard-header:hover {
+  background: color-mix(in srgb, var(--primary) 6%, var(--surface));
+}
+
+.ProjectCard-header-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  min-width: 0;
+}
+
+.ProjectCard-header-left > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ProjectCard-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.ProjectCard-deadline {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.ProjectCard-header-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-shrink: 0;
+}
+
+.ProjectCard-chevron {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  width: 16px;
+  text-align: center;
+}
+
+.ProjectCard-detail {
+  border-top: 1px solid var(--border);
+  padding: var(--space-md);
+}
+
+.ProjectCard-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: var(--space-md);
+}
+
+.ProjectCard-milestones-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-sm);
+}
+
+.ProjectCard-milestones-header h4 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* ─── Milestone ─── */
+.Milestone {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-sm);
+  overflow: hidden;
+}
+
+.Milestone-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.Milestone-header:hover {
+  background: color-mix(in srgb, var(--primary) 4%, var(--surface));
+}
+
+.Milestone-chevron {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  width: 12px;
+}
+
+.Milestone-name {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text);
+  min-width: 120px;
+}
+
+.Milestone-deadline {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-left: auto;
+}
+
+.Milestone-tasks {
+  padding: var(--space-xs) var(--space-md) var(--space-sm);
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.Milestone-task {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 0.82rem;
+  color: var(--text);
+  cursor: pointer;
+  padding: 4px 0;
+}
+
+.Milestone-task input[type="checkbox"] {
+  accent-color: var(--primary);
+  width: 14px;
+  height: 14px;
+}
+
+.Milestone-task--done {
+  text-decoration: line-through;
+  color: var(--text-secondary);
+}
+
+.Milestone-empty {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  padding: 4px 0;
+}
+
+/* =====================================================
+   CREATE PROJECT FORM
+   ===================================================== */
+
+.CreateProject {
+  max-width: 600px;
+}
+
+.CreateProject-card {
+  padding: var(--space-lg);
+}
+
+.CreateProject-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: var(--space-lg);
+}
+
+.CreateProject-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.CreateProject-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.CreateProject-field label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.CreateProject-field input,
+.CreateProject-field textarea {
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  padding: 10px 12px;
+  font-family: inherit;
+  font-size: 0.875rem;
+  transition: border-color var(--transition-fast);
+  resize: vertical;
+}
+
+.CreateProject-field input:focus,
+.CreateProject-field textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.CreateProject-field input::placeholder,
+.CreateProject-field textarea::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.6;
+}
+
+.CreateProject-actions {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+/* =====================================================
+   CREATE EVENT FORM
+   ===================================================== */
+
+.CreateEvent {
+  max-width: 600px;
+}
+
+.CreateEvent-card {
+  padding: var(--space-lg);
+}
+
+.CreateEvent-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: var(--space-lg);
+}
+
+.CreateEvent-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.CreateEvent-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.CreateEvent-field label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.CreateEvent-opt {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.CreateEvent-field input,
+.CreateEvent-field textarea {
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  padding: 10px 12px;
+  font-family: inherit;
+  font-size: 0.875rem;
+  transition: border-color var(--transition-fast);
+  resize: vertical;
+}
+
+.CreateEvent-field input:focus,
+.CreateEvent-field textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.CreateEvent-field input::placeholder,
+.CreateEvent-field textarea::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.6;
+}
+
+.CreateEvent-actions {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+/* =====================================================
+   ADD MILESTONE FORM
+   ===================================================== */
+
+.AddMilestone {
+  margin-top: var(--space-md);
+  padding: var(--space-md);
+  border-color: var(--primary);
+}
+
+.AddMilestone-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: var(--space-md);
+}
+
+.AddMilestone-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.AddMilestone-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.AddMilestone-field label {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.AddMilestone-field input {
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  padding: 8px 10px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  transition: border-color var(--transition-fast);
+}
+
+.AddMilestone-field input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.AddMilestone-field input::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.6;
+}
+
+.AddMilestone-tasks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: var(--space-sm);
+}
+
+.AddMilestone-task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  color: var(--text);
+}
+
+.AddMilestone-task-remove {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.75rem;
+  padding: 2px;
+}
+
+.AddMilestone-task-remove:hover {
+  color: var(--danger);
+}
+
+.AddMilestone-tasks-empty {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  padding: 4px 0;
+}
+
+.AddMilestone-task-input-row {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.AddMilestone-task-input-row input {
+  flex: 1;
+}
+
+.AddMilestone-actions {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: var(--space-xs);
+}
+
+.ProjectCard-add-milestone {
+  margin-top: var(--space-sm);
+  width: 100%;
+  justify-content: center;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm);
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.ProjectCard-add-milestone:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: transparent;
+}

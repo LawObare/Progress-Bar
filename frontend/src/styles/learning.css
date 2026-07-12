@@ -1,0 +1,364 @@
+/* =====================================================
+   SELF LEARNING — List Card
+   ===================================================== */
+
+.LearningList {
+  max-width: 800px;
+}
+
+.LearningList-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+/* ─── Learning Card (list) ─── */
+.LearningCard {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  cursor: pointer;
+}
+
+.LearningCard:hover {
+  border-color: var(--primary);
+}
+
+.LearningCard-body {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-md);
+  min-width: 0;
+}
+
+.LearningCard-main {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.LearningCard-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.LearningCard-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.LearningCard-source {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin-left: calc(10px + var(--space-sm));
+}
+
+.LearningCard-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.LearningCard-target {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.LearningCard-chevron {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+/* =====================================================
+   SELF LEARNING — Detail View
+   ===================================================== */
+
+.LearningDetail {
+  max-width: 800px;
+}
+
+.LearningDetail-back {
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: var(--space-md);
+}
+
+.LearningDetail-back:hover {
+  text-decoration: underline;
+}
+
+.LearningDetail-card {
+  padding: var(--space-lg);
+}
+
+.LearningDetail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-xl);
+}
+
+.LearningDetail-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.LearningDetail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.LearningDetail-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.LearningDetail-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.LearningDetail-value {
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.LearningDetail-estimated {
+  color: var(--success);
+}
+
+.LearningDetail-bar-track {
+  height: 8px;
+  background: var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.LearningDetail-bar-fill {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 4px;
+  transition: width var(--transition-normal);
+}
+
+/* ─── Today's Goal ─── */
+.LearningDetail-today,
+.LearningDetail-schedule {
+  margin-bottom: var(--space-lg);
+}
+
+.LearningDetail-today h4,
+.LearningDetail-schedule h4,
+.LearningDetail-notes h4 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: var(--space-sm);
+}
+
+.LearningDetail-today-check {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.LearningDetail-today-check input[type="checkbox"] {
+  accent-color: var(--primary);
+  width: 16px;
+  height: 16px;
+}
+
+.LearningDetail-today--done {
+  text-decoration: line-through;
+  color: var(--text-secondary);
+}
+
+.LearningDetail-schedule-value {
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+/* ─── Notes ─── */
+.LearningDetail-notes {
+  margin-bottom: 0;
+}
+
+.LearningDetail-notes-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-md) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.LearningDetail-note {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  padding: var(--space-sm);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.LearningDetail-note p {
+  flex: 1;
+  min-width: 0;
+}
+
+.LearningDetail-note-del {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.8rem;
+  padding: 2px 4px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.LearningDetail-note-del:hover {
+  color: var(--danger);
+  background: color-mix(in srgb, var(--danger) 15%, transparent);
+}
+
+.LearningDetail-notes-empty {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-bottom: var(--space-md);
+}
+
+.LearningDetail-note-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.LearningDetail-note-input {
+  width: 100%;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  padding: var(--space-sm);
+  font-family: inherit;
+  font-size: 0.85rem;
+  resize: vertical;
+}
+
+.LearningDetail-note-input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.LearningDetail-note-actions {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+/* =====================================================
+   SELF LEARNING — Create Form
+   ===================================================== */
+
+.CreateLearning {
+  max-width: 600px;
+}
+
+.CreateLearning-card {
+  padding: var(--space-lg);
+}
+
+.CreateLearning-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: var(--space-lg);
+}
+
+.CreateLearning-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.CreateLearning-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.CreateLearning-field label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.CreateLearning-opt {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.CreateLearning-field input,
+.CreateLearning-field select {
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  padding: 10px 12px;
+  font-family: inherit;
+  font-size: 0.875rem;
+  transition: border-color var(--transition-fast);
+}
+
+.CreateLearning-field input:focus,
+.CreateLearning-field select:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.CreateLearning-field input::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.6;
+}
+
+.CreateLearning-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.CreateLearning-actions {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
+}

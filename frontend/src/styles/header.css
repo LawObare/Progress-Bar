@@ -65,6 +65,7 @@
   align-items: center;
   justify-content: center;
   transition: border-color var(--transition-fast);
+  text-decoration: none;
 }
 
 .Header-avatar:hover {

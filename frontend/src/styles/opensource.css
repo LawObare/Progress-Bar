@@ -1,0 +1,398 @@
+/* =====================================================
+   OPEN SOURCE PAGE
+   ===================================================== */
+
+.OpenSource {
+  max-width: 800px;
+}
+
+/* ─── Monthly Goal with Ring ─── */
+.OpenSource-monthly {
+  margin-bottom: var(--space-xl);
+}
+
+.OpenSource-monthly > h3 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: var(--space-md);
+}
+
+.OpenSource-monthly-card {
+  text-align: center;
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.OpenSource-monthly-ring {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.OpenSource-ring-svg {
+  position: absolute;
+  inset: 0;
+}
+
+.OpenSource-monthly-count {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text);
+  z-index: 1;
+}
+
+.OpenSource-monthly-total {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.OpenSource-monthly-quote {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  max-width: 320px;
+}
+
+/* ─── Lifetime Stats ─── */
+.OpenSource-stats {
+  margin-bottom: var(--space-xl);
+}
+
+.OpenSource-stats > h3 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: var(--space-md);
+}
+
+.OpenSource-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.OpenSource-stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  text-align: center;
+}
+
+.OpenSource-stat-value {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.OpenSource-stat-label {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* ─── Custom Routine Goals ─── */
+.OpenSource-routines {
+  margin-bottom: var(--space-xl);
+}
+
+.OpenSource-routines .SectionHeader {
+  margin-bottom: var(--space-md);
+}
+
+.OpenSource-empty {
+  text-align: center;
+  padding: var(--space-xl);
+}
+
+.OpenSource-empty-text {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-bottom: var(--space-md);
+}
+
+.OpenSource-routine-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.OpenSource-routine {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  cursor: pointer;
+  transition: border-color var(--transition-fast), opacity var(--transition-fast);
+}
+
+.OpenSource-routine:hover {
+  border-color: var(--primary);
+}
+
+.OpenSource-routine--done {
+  opacity: 0.5;
+}
+
+.OpenSource-routine--done .OpenSource-routine-title {
+  text-decoration: line-through;
+  color: var(--text-secondary);
+}
+
+.OpenSource-routine-checkbox {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.OpenSource-routine-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.OpenSource-routine-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.OpenSource-routine-meta {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.OpenSource-routine-streak {
+  font-size: 0.78rem;
+  color: var(--warning);
+  flex-shrink: 0;
+}
+
+/* =====================================================
+   CREATE OPEN SOURCE ROUTINE (custom)
+   ===================================================== */
+
+.CreateOSR {
+  max-width: 600px;
+}
+
+.CreateOSR-card {
+  padding: var(--space-xl);
+}
+
+.CreateOSR-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: var(--space-xs);
+}
+
+.CreateOSR-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-lg);
+}
+
+.CreateOSR-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.CreateOSR-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.CreateOSR-field label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.CreateOSR-opt {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.CreateOSR-field input[type="text"],
+.CreateOSR-field input[type="date"] {
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  padding: 10px 12px;
+  font-family: inherit;
+  font-size: 0.875rem;
+  transition: border-color var(--transition-fast);
+}
+
+.CreateOSR-field input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.CreateOSR-field input::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.6;
+}
+
+.CreateOSR-chips {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.CreateOSR-chip {
+  position: relative;
+  cursor: pointer;
+}
+
+.CreateOSR-chip input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.CreateOSR-chip span {
+  display: inline-block;
+  padding: 8px 18px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.CreateOSR-chip input:checked + span {
+  border-color: var(--primary);
+  background: color-mix(in srgb, var(--primary) 15%, transparent);
+  color: var(--primary);
+}
+
+.CreateOSR-chip:hover span {
+  border-color: var(--text-secondary);
+  color: var(--text);
+}
+
+.CreateOSR-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.CreateOSR-actions {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: var(--space-xs);
+}
+
+/* =====================================================
+   CREATE ROUTINE GOAL (shared)
+   ===================================================== */
+
+.CreateRoutine {
+  max-width: 600px;
+}
+
+.CreateRoutine-card {
+  padding: var(--space-lg);
+}
+
+.CreateRoutine-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: var(--space-lg);
+}
+
+.CreateRoutine-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.CreateRoutine-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.CreateRoutine-field label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.CreateRoutine-opt {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.CreateRoutine-field input[type="text"],
+.CreateRoutine-field select,
+.CreateRoutine-field input[type="date"] {
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  padding: 10px 12px;
+  font-family: inherit;
+  font-size: 0.875rem;
+  transition: border-color var(--transition-fast);
+}
+
+.CreateRoutine-field input:focus,
+.CreateRoutine-field select:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.CreateRoutine-field input::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.6;
+}
+
+.CreateRoutine-radios {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.CreateRoutine-radio {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.875rem;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.CreateRoutine-radio input[type="radio"] {
+  accent-color: var(--primary);
+}
+
+.CreateRoutine-actions {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
+}
