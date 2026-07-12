@@ -2,25 +2,29 @@ import navigation from "../data/navigation";
 import NavItem from "./NavItem";
 import "../styles/sidebar.css";
 
-function Sidebar() {
-    return (
-        <aside className="Sidebar">
-            <nav className="Sidebar-nav">
-                 <div className="Sidebar-logo">
-                    <h2>Progress Bar</h2>
-                 </div>
-            
-                 <ul>
-                      {navigation.map((item) => (
-                         <NavItem 
-                         key={item.path} 
-                         {...item}
-                         />
-                   ))}
-                 </ul>
-            </nav>
-        </aside>
-    );
+function Sidebar({ open }) {
+  const mainItems = navigation.filter((item) => item.path !== "/settings");
+  const settingsItem = navigation.find((item) => item.path === "/settings");
+
+  return (
+    <aside className={`Sidebar ${open ? "" : "closed"}`}>
+      <nav className="Sidebar-nav">
+        <ul>
+          {mainItems.map((item) => (
+            <NavItem key={item.path} {...item} />
+          ))}
+        </ul>
+
+        <div className="Sidebar-divider" />
+
+        {settingsItem && (
+          <ul>
+            <NavItem {...settingsItem} />
+          </ul>
+        )}
+      </nav>
+    </aside>
+  );
 }
 
 export default Sidebar;

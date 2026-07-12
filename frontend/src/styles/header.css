@@ -1,14 +1,77 @@
 .Header {
   grid-area: header;
-
   height: var(--header-height);
-
   border-bottom: 1px solid var(--border);
-
   display: flex;
   align-items: center;
-
-  padding: 0 24px;
-
+  justify-content: space-between;
+  padding: 0 var(--space-lg);
   background: var(--background);
+}
+
+.Header-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.Header-menu-btn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1.3rem;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast);
+  line-height: 1;
+}
+
+.Header-menu-btn:hover {
+  color: var(--text);
+}
+
+.Header-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.Header-logo {
+  font-size: 1.5rem;
+  color: var(--primary);
+}
+
+.Header-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.Header-actions {
+  display: flex;
+  align-items: center;
+}
+
+.Header-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  background: var(--surface);
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color var(--transition-fast);
+}
+
+.Header-avatar:hover {
+  border-color: var(--text-secondary);
+}
+
+.Header-avatar-inner {
+  font-size: 0.85rem;
+  font-weight: 600;
 }

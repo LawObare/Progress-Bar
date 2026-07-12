@@ -1,13 +1,13 @@
-import { NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function NavItem({ label, path }) {
-    return (
-        <li>
-            <NavLink to={path}>
-                {label}
-            </NavLink>
-        </li>
-    );
+  return (
+    <li>
+      <NavLink to={path} className={({ isActive }) => isActive ? "active" : ""}>
+        {label}
+      </NavLink>
+    </li>
+  );
 }
 
 export default NavItem;
