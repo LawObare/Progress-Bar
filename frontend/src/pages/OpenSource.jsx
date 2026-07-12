@@ -1,18 +1,14 @@
 /*
   ─── Open Source Page ───
 
-  Sections:
-    1. Monthly Goal — Contribution counter with motivational quote
-    2. Lifetime Stats — repos, total contributions, streak
-    3. Routine Goals — recurring contribution goals (custom display)
+  Uses the Routine system.
+  Contains: Routine Goals + Total Contributions.
 
   API:
-    GET /opensource/stats
-    Response: { monthlyGoal: { completed, total }, lifetime: { repos, contributions, streak } }
-
     GET /routines?category=opensource&sort=next_due
     POST /routines
     PATCH /routines/:id/complete
+    GET /opensource/stats → { totalContributions: number }
 */
 
 import { useState } from "react";
@@ -23,15 +19,7 @@ import "../styles/opensource.css";
 function OpenSource() {
   const [routines, setRoutines] = useState([]);
   const [showCreate, setShowCreate] = useState(false);
-
-  /*
-    API: GET /opensource/stats
-    Placeholder data shape until backend is wired.
-  */
-  const stats = {
-    monthlyGoal: { completed: 0, total: 1 },
-    lifetime: { repos: 0, contributions: 0, streak: 0 },
-  };
+  const totalContributions = 0;
 
   const handleRoutineComplete = (id) => {
     /* API: PATCH /routines/:id/complete */
@@ -42,17 +30,20 @@ function OpenSource() {
     );
   };
 
-  const handleCreateRoutine = (formData) => {
-    /* API: POST /routines */
+  const handleCreateRoutine = (e) => {
+    e.preventDefault();
+    const fd = new FormData(e.target);
+    /* API: POST /routines { category: "Open Source", ... } */
     const routine = {
-      id: `routine-${Date.now()}`,
-      title: formData.title,
-      category: formData.category,
-      repeat: formData.repeat,
-      nextDue: new Date(formData.startDate).toLocaleDateString("en-GB", {
-        day: "numeric", month: "short", year: "numeric",
-      }),
-      streak: 0,
+      id: `osr-${Date.now()}`,
+      title: fd.get("title"),
+      category: "Open Source",
+      repeat: fd.get("repeat"),
+      nextDue: fd.get("startDate")
+        ? new Date(fd.get("startDate")).toLocaleDateString("en-GB", {
+            day: "numeric", month: "short", year: "numeric",
+          })
+        : "—",
       completed: false,
     };
     setRoutines((prev) => [...prev, routine]);
@@ -69,24 +60,10 @@ function OpenSource() {
               Set a recurring goal to stay active in open source.
             </p>
 
-            <form
-              className="CreateOSR-form"
-              onSubmit={(e) => {
-                e.preventDefault();
-                const fd = new FormData(e.target);
-                handleCreateRoutine({
-                  title: fd.get("title"),
-                  repeat: fd.get("repeat"),
-                  category: "Open Source",
-                  startDate: fd.get("startDate"),
-                  targetEndDate: fd.get("targetEndDate"),
-                });
-              }}
-            >
+            <form onSubmit={handleCreateRoutine} className="CreateOSR-form">
               <div className="CreateOSR-field">
-                <label htmlFor="osr-title">What kind of contribution do you plan on making?</label>
+                <label>What kind of contribution do you plan on making?</label>
                 <input
-                  id="osr-title"
                   name="title"
                   type="text"
                   placeholder="e.g. Monthly Open Source Contribution"
@@ -113,14 +90,14 @@ function OpenSource() {
 
               <div className="CreateOSR-row">
                 <div className="CreateOSR-field">
-                  <label htmlFor="osr-start">Start Date</label>
-                  <input id="osr-start" name="startDate" type="date" required />
+                  <label>Start Date</label>
+                  <input name="startDate" type="date" required />
                 </div>
                 <div className="CreateOSR-field">
-                  <label htmlFor="osr-end">
+                  <label>
                     End Date <span className="CreateOSR-opt">(Optional)</span>
                   </label>
-                  <input id="osr-end" name="targetEndDate" type="date" />
+                  <input name="targetEndDate" type="date" />
                 </div>
               </div>
 
@@ -145,105 +122,46 @@ function OpenSource() {
     <div className="OpenSource">
       <div className="SectionHeader">
         <h2 className="SectionHeader-title">Open Source</h2>
-        <Button size="sm" onClick={() => setShowCreate(true)}>
-          + Create
-        </Button>
+        <Button size="sm" onClick={() => setShowCreate(true)}>+ Create</Button>
       </div>
 
-      {/* ─── Monthly Goal ─── */}
-      <section className="OpenSource-monthly">
-        <h3>Monthly Goal</h3>
-        <Card className="OpenSource-monthly-card">
-          <div className="OpenSource-monthly-ring">
-            <svg viewBox="0 0 120 120" className="OpenSource-ring-svg">
-              <circle
-                cx="60" cy="60" r="52"
-                fill="none"
-                stroke="var(--border)"
-                strokeWidth="8"
-              />
-              <circle
-                cx="60" cy="60" r="52"
-                fill="none"
-                stroke="var(--primary)"
-                strokeWidth="8"
-                strokeDasharray={`${(stats.monthlyGoal.completed / Math.max(stats.monthlyGoal.total, 1)) * 327} 327`}
-                strokeLinecap="round"
-                transform="rotate(-90 60 60)"
-              />
-            </svg>
-            <span className="OpenSource-monthly-count">
-              {stats.monthlyGoal.completed}
-              <span className="OpenSource-monthly-total">/{stats.monthlyGoal.total}</span>
-            </span>
-          </div>
-          <p className="OpenSource-monthly-quote">
-            &ldquo;One contribution every month keeps the merge conflicts away.&rdquo;
-          </p>
+      {/* ─── Total Contributions ─── */}
+      <section className="OS-summary">
+        <Card className="OS-summary-card">
+          <span className="OS-summary-label">Total Contributions</span>
+          <span className="OS-summary-value">{totalContributions}</span>
         </Card>
       </section>
 
-      {/* ─── Lifetime Stats ─── */}
-      <section className="OpenSource-stats">
-        <h3>Lifetime Stats</h3>
-        <div className="OpenSource-stats-grid">
-          <div className="OpenSource-stat">
-            <p className="OpenSource-stat-value">{stats.lifetime.repos}</p>
-            <p className="OpenSource-stat-label">Repositories Contributed To</p>
-          </div>
-          <div className="OpenSource-stat">
-            <p className="OpenSource-stat-value">{stats.lifetime.contributions}</p>
-            <p className="OpenSource-stat-label">Total Contributions</p>
-          </div>
-          <div className="OpenSource-stat">
-            <p className="OpenSource-stat-value">{stats.lifetime.streak} months</p>
-            <p className="OpenSource-stat-label">Current Streak</p>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── Routine Goals (custom open-source display) ─── */}
-      <section className="OpenSource-routines">
-        <div className="SectionHeader">
-          <h3 className="SectionHeader-title">Routine Goals</h3>
-          <button className="SectionHeader-action" onClick={() => setShowCreate(true)}>
-            + New
-          </button>
-        </div>
-
+      {/* ─── Routine Goals ─── */}
+      <section className="OS-routines">
+        <h3>Routine Goals</h3>
         {routines.length === 0 ? (
-          <Card className="OpenSource-empty">
-            <p className="OpenSource-empty-text">
-              No routine goals yet. Create one to stay consistent.
-            </p>
+          <Card className="OS-empty">
+            <p className="OS-empty-text">The community is waiting.</p>
             <Button size="sm" onClick={() => setShowCreate(true)}>
               + Create Routine Goal
             </Button>
           </Card>
         ) : (
-          <div className="OpenSource-routine-list">
+          <div className="OS-routine-list">
             {routines.map((routine) => (
               <label
                 key={routine.id}
-                className={`OpenSource-routine ${routine.completed ? "OpenSource-routine--done" : ""}`}
+                className={`OS-routine ${routine.completed ? "OS-routine--done" : ""}`}
               >
                 <input
                   type="checkbox"
                   checked={routine.completed}
                   onChange={() => handleRoutineComplete(routine.id)}
-                  className="OpenSource-routine-checkbox"
+                  className="OS-routine-checkbox"
                 />
-                <div className="OpenSource-routine-body">
-                  <span className="OpenSource-routine-title">
-                    {routine.title}
-                  </span>
-                  <span className="OpenSource-routine-meta">
+                <div className="OS-routine-body">
+                  <span className="OS-routine-title">{routine.title}</span>
+                  <span className="OS-routine-meta">
                     {routine.repeat} · Next: {routine.nextDue}
                   </span>
                 </div>
-                <span className="OpenSource-routine-streak">
-                  🔥 {routine.streak}
-                </span>
               </label>
             ))}
           </div>

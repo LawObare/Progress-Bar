@@ -6,127 +6,59 @@
   max-width: 800px;
 }
 
-/* ─── Monthly Goal with Ring ─── */
-.OpenSource-monthly {
+/* ─── Total Contributions ─── */
+.OS-summary {
   margin-bottom: var(--space-xl);
 }
 
-.OpenSource-monthly > h3 {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text);
-  margin-bottom: var(--space-md);
-}
-
-.OpenSource-monthly-card {
+.OS-summary-card {
   text-align: center;
-  padding: var(--space-xl);
+  padding: var(--space-lg);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: var(--space-md);
+  gap: var(--space-xs);
 }
 
-.OpenSource-monthly-ring {
-  position: relative;
-  width: 120px;
-  height: 120px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.OS-summary-label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.OpenSource-ring-svg {
-  position: absolute;
-  inset: 0;
-}
-
-.OpenSource-monthly-count {
-  font-size: 1.8rem;
+.OS-summary-value {
+  font-size: 2.5rem;
   font-weight: 700;
   color: var(--text);
-  z-index: 1;
 }
 
-.OpenSource-monthly-total {
-  color: var(--text-secondary);
-  font-size: 1rem;
-}
-
-.OpenSource-monthly-quote {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  font-style: italic;
-  max-width: 320px;
-}
-
-/* ─── Lifetime Stats ─── */
-.OpenSource-stats {
-  margin-bottom: var(--space-xl);
-}
-
-.OpenSource-stats > h3 {
-  font-size: 0.85rem;
+/* ─── Routine Goals ─── */
+.OS-routines h3 {
+  font-size: 0.9rem;
   font-weight: 600;
   color: var(--text);
   margin-bottom: var(--space-md);
 }
 
-.OpenSource-stats-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-md);
-}
-
-.OpenSource-stat {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  padding: var(--space-md);
-  text-align: center;
-}
-
-.OpenSource-stat-value {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 2px;
-}
-
-.OpenSource-stat-label {
-  font-size: 0.7rem;
-  color: var(--text-secondary);
-  line-height: 1.4;
-}
-
-/* ─── Custom Routine Goals ─── */
-.OpenSource-routines {
-  margin-bottom: var(--space-xl);
-}
-
-.OpenSource-routines .SectionHeader {
-  margin-bottom: var(--space-md);
-}
-
-.OpenSource-empty {
+.OS-empty {
   text-align: center;
   padding: var(--space-xl);
 }
 
-.OpenSource-empty-text {
-  font-size: 0.85rem;
+.OS-empty-text {
+  font-size: 0.9rem;
   color: var(--text-secondary);
   font-style: italic;
   margin-bottom: var(--space-md);
 }
 
-.OpenSource-routine-list {
+.OS-routine-list {
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
 }
 
-.OpenSource-routine {
+.OS-routine {
   display: flex;
   align-items: center;
   gap: var(--space-md);
@@ -138,20 +70,20 @@
   transition: border-color var(--transition-fast), opacity var(--transition-fast);
 }
 
-.OpenSource-routine:hover {
+.OS-routine:hover {
   border-color: var(--primary);
 }
 
-.OpenSource-routine--done {
+.OS-routine--done {
   opacity: 0.5;
 }
 
-.OpenSource-routine--done .OpenSource-routine-title {
+.OS-routine--done .OS-routine-title {
   text-decoration: line-through;
   color: var(--text-secondary);
 }
 
-.OpenSource-routine-checkbox {
+.OS-routine-checkbox {
   width: 18px;
   height: 18px;
   accent-color: var(--primary);
@@ -159,7 +91,7 @@
   flex-shrink: 0;
 }
 
-.OpenSource-routine-body {
+.OS-routine-body {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -167,21 +99,15 @@
   min-width: 0;
 }
 
-.OpenSource-routine-title {
+.OS-routine-title {
   font-size: 0.9rem;
   font-weight: 600;
   color: var(--text);
 }
 
-.OpenSource-routine-meta {
+.OS-routine-meta {
   font-size: 0.78rem;
   color: var(--text-secondary);
-}
-
-.OpenSource-routine-streak {
-  font-size: 0.78rem;
-  color: var(--warning);
-  flex-shrink: 0;
 }
 
 /* =====================================================
@@ -304,95 +230,4 @@
   display: flex;
   gap: var(--space-sm);
   margin-top: var(--space-xs);
-}
-
-/* =====================================================
-   CREATE ROUTINE GOAL (shared)
-   ===================================================== */
-
-.CreateRoutine {
-  max-width: 600px;
-}
-
-.CreateRoutine-card {
-  padding: var(--space-lg);
-}
-
-.CreateRoutine-title {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: var(--space-lg);
-}
-
-.CreateRoutine-form {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-}
-
-.CreateRoutine-field {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.CreateRoutine-field label {
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--text);
-}
-
-.CreateRoutine-opt {
-  font-size: 0.75rem;
-  color: var(--text-secondary);
-  font-weight: 400;
-}
-
-.CreateRoutine-field input[type="text"],
-.CreateRoutine-field select,
-.CreateRoutine-field input[type="date"] {
-  background: var(--background);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  color: var(--text);
-  padding: 10px 12px;
-  font-family: inherit;
-  font-size: 0.875rem;
-  transition: border-color var(--transition-fast);
-}
-
-.CreateRoutine-field input:focus,
-.CreateRoutine-field select:focus {
-  outline: none;
-  border-color: var(--primary);
-}
-
-.CreateRoutine-field input::placeholder {
-  color: var(--text-secondary);
-  opacity: 0.6;
-}
-
-.CreateRoutine-radios {
-  display: flex;
-  gap: var(--space-md);
-}
-
-.CreateRoutine-radio {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.875rem;
-  color: var(--text);
-  cursor: pointer;
-}
-
-.CreateRoutine-radio input[type="radio"] {
-  accent-color: var(--primary);
-}
-
-.CreateRoutine-actions {
-  display: flex;
-  gap: var(--space-sm);
-  margin-top: var(--space-sm);
 }

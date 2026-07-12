@@ -49,6 +49,7 @@ function ClientProjects() {
       projects={projects}
       setProjects={setProjects}
       title="Client Projects"
+      emptyMessage="No projects yet. Every masterpiece starts with one commit."
       onAddProject={handleAddProject}
     />
   );

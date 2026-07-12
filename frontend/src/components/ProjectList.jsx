@@ -20,7 +20,7 @@ import ProgressBar from "./ProgressBar";
 import StatusDot from "./StatusDot";
 import AddMilestone from "./AddMilestone";
 
-function ProjectList({ projects, setProjects, title, onAddProject }) {
+function ProjectList({ projects, setProjects, title, emptyMessage, onAddProject }) {
   const [expandedId, setExpandedId] = useState(null);
   const [addingMilestoneFor, setAddingMilestoneFor] = useState(null);
 
@@ -66,10 +66,9 @@ function ProjectList({ projects, setProjects, title, onAddProject }) {
       </div>
 
       {projects.length === 0 ? (
-        <div className="Home-empty">
-          <p>No projects yet.</p>
-          <p>Create your first project to get started.</p>
-          <Button onClick={onAddProject}>+ Create Project</Button>
+        <div className="ProjectList-empty">
+          <p className="ProjectList-empty-text">{emptyMessage || "No projects yet."}</p>
+          <Button size="sm" onClick={onAddProject}>+ Create Project</Button>
         </div>
       ) : (
         <div className="ProjectList-grid">
@@ -100,10 +99,14 @@ function ProjectList({ projects, setProjects, title, onAddProject }) {
                     </div>
                   </div>
                   <div className="ProjectCard-header-right">
-                    <ProgressBar
-                      completed={project.progress.completed}
-                      total={project.progress.total}
-                    />
+                    <span className="ProjectCard-milestone-count">
+                      {
+                        project.milestones.filter((m) =>
+                          m.tasks.length > 0 && m.tasks.every((t) => t.completed)
+                        ).length
+                      }
+                      /{project.milestones.length} milestones
+                    </span>
                     <span className="ProjectCard-chevron">
                       {isOpen ? "▼" : "▶"}
                     </span>

@@ -114,10 +114,9 @@ function Career() {
       </div>
 
       {goals.length === 0 ? (
-        <div className="Home-empty">
-          <p>No career goals yet.</p>
-          <p>Track your resume updates, interviews, certifications, and more.</p>
-          <Button onClick={() => setShowCreate(true)}>+ Create Career Goal</Button>
+        <div className="Career-empty">
+          <p className="Career-empty-text">Your future employer hasn&apos;t met you yet.</p>
+          <Button size="sm" onClick={() => setShowCreate(true)}>+ Create Career Goal</Button>
         </div>
       ) : (
         <div className="Career-grid">

@@ -16,7 +16,7 @@
 }
 
 .Networking-empty-text {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: var(--text-secondary);
   font-style: italic;
   margin-bottom: var(--space-md);

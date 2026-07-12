@@ -231,72 +231,25 @@
   margin-bottom: 0;
 }
 
-.Home-empty {
+.Home-empty-card {
   text-align: center;
-  padding: var(--space-xl) 0;
-  color: var(--text-secondary);
+  padding: var(--space-xl);
 }
 
-.Home-empty p {
-  margin-bottom: var(--space-sm);
-}
-
-/* ─── Home quick-create goal ─── */
-.Home-create-card {
-  max-width: 600px;
-  padding: var(--space-lg);
-}
-
-.Home-create-title {
-  font-size: 1.2rem;
-  font-weight: 700;
+.Home-empty-line {
+  font-size: 1rem;
   color: var(--text);
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-xs);
 }
 
-.Home-create-form {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-}
-
-.Home-create-field {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.Home-create-field label {
+.Home-empty-sub {
   font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--text);
-}
-
-.Home-create-field input,
-.Home-create-field select {
-  background: var(--background);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  color: var(--text);
-  padding: 10px 12px;
-  font-family: inherit;
-  font-size: 0.875rem;
-  transition: border-color var(--transition-fast);
-}
-
-.Home-create-field input:focus,
-.Home-create-field select:focus {
-  outline: none;
-  border-color: var(--primary);
-}
-
-.Home-create-field input::placeholder {
   color: var(--text-secondary);
-  opacity: 0.6;
 }
 
-.Home-create-actions {
-  display: flex;
-  gap: var(--space-sm);
-  margin-top: var(--space-xs);
+.Home-wisdom {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  text-align: center;
 }

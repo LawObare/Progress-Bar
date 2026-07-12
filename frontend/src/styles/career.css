@@ -148,3 +148,16 @@
   display: flex;
   gap: var(--space-sm);
 }
+
+/* ─── Empty State ─── */
+.Career-empty {
+  text-align: center;
+  padding: var(--space-xl);
+}
+
+.Career-empty-text {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-bottom: var(--space-md);
+}

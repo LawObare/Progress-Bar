@@ -48,6 +48,7 @@ function PersonalProjects() {
       projects={projects}
       setProjects={setProjects}
       title="Personal Projects"
+      emptyMessage="No projects yet. Every masterpiece starts with one commit."
       onAddProject={handleAddProject}
     />
   );

@@ -46,7 +46,6 @@ function Networking() {
             day: "numeric", month: "short", year: "numeric",
           })
         : "—",
-      streak: 0,
       completed: false,
     };
     setRoutines((prev) => [...prev, routine]);
@@ -168,7 +167,7 @@ function Networking() {
         {routines.length === 0 ? (
           <Card className="Networking-empty">
             <p className="Networking-empty-text">
-              No networking routines yet.
+              Connections don&apos;t build themselves.
             </p>
             <Button size="sm" onClick={() => setView("create-routine")}>
               + Create Routine
@@ -216,7 +215,7 @@ function Networking() {
         {events.length === 0 ? (
           <Card className="Networking-empty">
             <p className="Networking-empty-text">
-              No upcoming events.
+              Nothing on the calendar yet.
             </p>
             <Button size="sm" onClick={() => setView("create-event")}>
               + Add Event

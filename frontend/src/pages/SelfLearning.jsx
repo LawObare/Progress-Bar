@@ -97,10 +97,9 @@ function SelfLearning() {
       </div>
 
       {goals.length === 0 ? (
-        <div className="Home-empty">
-          <p>No learning goals yet.</p>
-          <p>Start tracking a book, course, or tutorial you&apos;re working through.</p>
-          <Button onClick={() => setShowCreate(true)}>+ Create Learning Goal</Button>
+        <div className="LearningList-empty">
+          <p className="LearningList-empty-text">Ready to learn something new?</p>
+          <Button size="sm" onClick={() => setShowCreate(true)}>+ Create Learning Goal</Button>
         </div>
       ) : (
         <div className="LearningList-grid">

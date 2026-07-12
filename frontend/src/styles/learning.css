@@ -362,3 +362,16 @@
   gap: var(--space-sm);
   margin-top: var(--space-sm);
 }
+
+/* ─── Empty State ─── */
+.LearningList-empty {
+  text-align: center;
+  padding: var(--space-xl);
+}
+
+.LearningList-empty-text {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-bottom: var(--space-md);
+}
