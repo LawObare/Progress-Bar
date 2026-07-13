@@ -1,0 +1,62 @@
+.Tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  background: color-mix(in srgb, var(--primary) 15%, transparent);
+  color: var(--primary);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.Tag-remove {
+  background: none;
+  border: none;
+  color: var(--primary);
+  cursor: pointer;
+  font-size: 0.9rem;
+  line-height: 1;
+  padding: 0 2px;
+  opacity: 0.6;
+}
+
+.Tag-remove:hover {
+  opacity: 1;
+}
+
+.TagInput {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: center;
+  padding: 6px 8px;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  min-height: 36px;
+  cursor: text;
+}
+
+.TagInput:focus-within {
+  border-color: var(--primary);
+}
+
+.TagInput-field {
+  flex: 1;
+  min-width: 80px;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.85rem;
+  padding: 2px 0;
+  outline: none;
+}
+
+.TagInput-field::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.5;
+}

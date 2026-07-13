@@ -94,6 +94,85 @@
   color: var(--text);
 }
 
+.ProjectCard-tasks-section {
+  margin-bottom: var(--space-lg);
+}
+
+.ProjectCard-tasks-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-sm);
+}
+
+.ProjectCard-tasks-header h4 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.ProjectCard-tasks-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-sm);
+}
+
+.ProjectCard-task {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 0.82rem;
+  color: var(--text);
+  cursor: pointer;
+  padding: 4px 0;
+}
+
+.ProjectCard-task input[type="checkbox"] {
+  accent-color: var(--primary);
+  width: 14px;
+  height: 14px;
+}
+
+.ProjectCard-task--done {
+  text-decoration: line-through;
+  color: var(--text-secondary);
+}
+
+.ProjectCard-tasks-empty {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  padding: 4px 0;
+}
+
+.ProjectCard-task-input-row {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.ProjectCard-task-input-row input {
+  flex: 1;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  padding: 6px 10px;
+  font-family: inherit;
+  font-size: 0.82rem;
+  transition: border-color var(--transition-fast);
+}
+
+.ProjectCard-task-input-row input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.ProjectCard-task-input-row input::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.6;
+}
+
 /* ─── Milestone ─── */
 .Milestone {
   border: 1px solid var(--border);
@@ -168,6 +247,34 @@
   color: var(--text-secondary);
   font-style: italic;
   padding: 4px 0;
+}
+
+.Milestone-task-input {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: var(--space-xs);
+}
+
+.Milestone-task-input input {
+  flex: 1;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  padding: 6px 10px;
+  font-family: inherit;
+  font-size: 0.82rem;
+  transition: border-color var(--transition-fast);
+}
+
+.Milestone-task-input input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.Milestone-task-input input::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.6;
 }
 
 /* =====================================================
@@ -308,6 +415,113 @@
 .CreateEvent-actions {
   display: flex;
   gap: var(--space-sm);
+}
+
+/* ─── Tags on Project Card ─── */
+.ProjectCard-tags {
+  display: flex;
+  gap: 4px;
+  margin-top: 4px;
+  flex-wrap: wrap;
+}
+
+/* ─── List View ─── */
+.ProjectList-table {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.ProjectList-table-header {
+  display: flex;
+  background: var(--sidebar);
+  border-bottom: 1px solid var(--border);
+  padding: var(--space-sm) var(--space-md);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ProjectList-table-row {
+  display: flex;
+  align-items: center;
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.ProjectList-table-row:last-child {
+  border-bottom: none;
+}
+
+.ProjectList-table-row:hover {
+  background: color-mix(in srgb, var(--primary) 4%, var(--surface));
+}
+
+.ProjectList-table-cell {
+  flex: 1;
+  padding: 0 var(--space-sm);
+  font-size: 0.82rem;
+  color: var(--text);
+  min-width: 0;
+}
+
+.ProjectList-table-cell--wide {
+  flex: 2;
+}
+
+.ProjectList-table-title {
+  font-weight: 500;
+  display: block;
+}
+
+.ProjectList-table-tags {
+  display: flex;
+  gap: 4px;
+  margin-top: 4px;
+  flex-wrap: wrap;
+}
+
+/* ─── Table View ─── */
+.ProjectList-table-view {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+
+.ProjectList-table-view th {
+  text-align: left;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--sidebar);
+  border-bottom: 1px solid var(--border);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ProjectList-table-view td {
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+}
+
+.ProjectList-table-view tbody tr {
+  transition: background var(--transition-fast);
+}
+
+.ProjectList-table-view tbody tr:hover {
+  background: color-mix(in srgb, var(--primary) 4%, var(--surface));
+}
+
+.ProjectList-table-view tbody tr:last-child td {
+  border-bottom: none;
 }
 
 /* ─── Empty State ─── */

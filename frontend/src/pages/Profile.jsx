@@ -22,47 +22,49 @@
 */
 
 import { useState } from "react";
+import { useAuth } from "../context/AuthContext";
 import Card from "../components/Card";
 import Button from "../components/Button";
 import "../styles/profile.css";
 
-function Profile() {
-  const [profile, setProfile] = useState({
-    name: "Lawrence Obare",
-    bio: "Passionate about building backend systems and creating software that solves real-world problems one project at a time.",
-    journey: {
-      projectsCompleted: 5,
-      learningGoalsFinished: 12,
-      careerGoalsAchieved: 4,
-      openSourceContributions: 8,
-      routineGoalsCompleted: 97,
-      eventsAttended: 6,
-    },
-  });
+const STAT_LABELS = [
+  "Projects Completed",
+  "Learning Goals Finished",
+  "Career Goals Achieved",
+  "Open Source Contributions",
+  "Routine Goals Completed",
+  "Events Attended",
+];
 
+function Profile() {
+  const { user } = useAuth();
+  const [bio, setBio] = useState("");
   const [editing, setEditing] = useState(false);
-  const [editBio, setEditBio] = useState(profile.bio);
+  const [editBio, setEditBio] = useState("");
+  const statsInitial = STAT_LABELS.map(() => 0);
 
   const handleEdit = () => {
-    setEditBio(profile.bio);
+    setEditBio(bio);
     setEditing(true);
   };
 
   const handleSave = () => {
-    /* API: PUT /profile { name: profile.name, bio: editBio } */
-    setProfile((prev) => ({ ...prev, bio: editBio }));
+    /* API: PUT /profile { name: user.name, bio: editBio } */
+    setBio(editBio);
     setEditing(false);
   };
+
+  const displayName = user?.name || "Developer";
 
   return (
     <div className="Profile">
       <div className="SectionHeader">
         <h2 className="SectionHeader-title">Profile</h2>
-        {editing ? (
+        {user && (editing ? (
           <Button size="sm" onClick={handleSave}>Save</Button>
         ) : (
           <Button size="sm" variant="secondary" onClick={handleEdit}>Edit</Button>
-        )}
+        ))}
       </div>
 
       <Card className="Profile-card">
@@ -70,10 +72,10 @@ function Profile() {
         <div className="Profile-avatar-section">
           <div className="Profile-avatar">
             <span className="Profile-avatar-letter">
-              {profile.name.charAt(0)}
+              {displayName.charAt(0)}
             </span>
           </div>
-          <h1 className="Profile-name">{profile.name}</h1>
+          <h1 className="Profile-name">{displayName}</h1>
         </div>
 
         <div className="Profile-divider" />
@@ -87,9 +89,10 @@ function Profile() {
               onChange={(e) => setEditBio(e.target.value)}
               className="Profile-bio-input"
               rows={4}
+              placeholder="Tell the world about yourself..."
             />
           ) : (
-            <p className="Profile-bio-text">{profile.bio}</p>
+            <p className="Profile-bio-text">{bio || "—"}</p>
           )}
         </section>
 
@@ -99,17 +102,10 @@ function Profile() {
         <section className="Profile-section">
           <h3>Your Journey</h3>
           <div className="Profile-stats">
-            {[
-              { label: "Projects Completed", value: profile.journey.projectsCompleted },
-              { label: "Learning Goals Finished", value: profile.journey.learningGoalsFinished },
-              { label: "Career Goals Achieved", value: profile.journey.careerGoalsAchieved },
-              { label: "Open Source Contributions", value: profile.journey.openSourceContributions },
-              { label: "Routine Goals Completed", value: profile.journey.routineGoalsCompleted },
-              { label: "Events Attended", value: profile.journey.eventsAttended },
-            ].map((stat) => (
-              <div key={stat.label} className="Profile-stat">
-                <span className="Profile-stat-value">{stat.value}</span>
-                <span className="Profile-stat-label">{stat.label}</span>
+            {STAT_LABELS.map((label, i) => (
+              <div key={label} className="Profile-stat">
+                <span className="Profile-stat-value">{statsInitial[i]}</span>
+                <span className="Profile-stat-label">{label}</span>
               </div>
             ))}
           </div>

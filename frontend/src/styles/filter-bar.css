@@ -1,0 +1,65 @@
+.FilterBar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  padding: var(--space-sm) 0;
+  flex-wrap: wrap;
+}
+
+.FilterBar-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.FilterBar-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.FilterBar-chips {
+  display: flex;
+  gap: 4px;
+}
+
+.FilterBar-chip {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  padding: 3px 10px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-family: inherit;
+}
+
+.FilterBar-chip:hover {
+  border-color: var(--text-secondary);
+  color: var(--text);
+}
+
+.FilterBar-chip--active {
+  background: color-mix(in srgb, var(--primary) 15%, transparent);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.FilterBar-select {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.78rem;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+.FilterBar-select:focus {
+  outline: none;
+  border-color: var(--primary);
+}

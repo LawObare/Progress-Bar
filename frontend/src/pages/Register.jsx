@@ -6,19 +6,31 @@
   Response: { token, user }
 */
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 import Button from "../components/Button";
 import "../styles/auth.css";
 
 function Register() {
+  const { login } = useAuth();
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    const fd = new FormData(e.target);
     /* API: POST /auth/register */
+    const user = { name: fd.get("fullName") };
+    login(user);
+    navigate("/home");
   };
 
   return (
     <div className="Auth">
       <div className="Auth-card">
+        <div className="Auth-brand">
+          <h1 className="Auth-logo">Progress Bar</h1>
+          <p className="Auth-tagline">Your developer operating system.</p>
+        </div>
         <h1 className="Auth-title">Create Account</h1>
 
         <form onSubmit={handleSubmit} className="Auth-form">

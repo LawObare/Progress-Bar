@@ -19,12 +19,14 @@
 import { useState } from "react";
 import Card from "./Card";
 import Button from "./Button";
+import TagInput from "./TagInput";
 
 function CreateProject({ projectType, onSubmit, onCancel }) {
   const [form, setForm] = useState({
     title: "",
     description: "",
     targetDeadline: "",
+    tags: [],
   });
 
   const handleChange = (field) => (e) => {
@@ -71,6 +73,14 @@ function CreateProject({ projectType, onSubmit, onCancel }) {
               value={form.targetDeadline}
               onChange={handleChange("targetDeadline")}
               required
+            />
+          </div>
+
+          <div className="CreateProject-field">
+            <label>Tags</label>
+            <TagInput
+              tags={form.tags}
+              onChange={(tags) => setForm((prev) => ({ ...prev, tags }))}
             />
           </div>
 

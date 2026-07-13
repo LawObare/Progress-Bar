@@ -19,6 +19,7 @@
 import { useState } from "react";
 import Card from "./Card";
 import Button from "./Button";
+import TagInput from "./TagInput";
 
 const SOURCE_TYPES = [
   "Book", "Course", "Documentation", "Tutorial", "Video", "Practice",
@@ -43,6 +44,7 @@ function CreateLearningGoal({ onSubmit, onCancel }) {
     total: "",
     studyFrequency: "3 per Week",
     targetDate: "",
+    tags: [],
   });
 
   const handleChange = (field) => (e) => {
@@ -139,6 +141,14 @@ function CreateLearningGoal({ onSubmit, onCancel }) {
               value={form.targetDate}
               onChange={handleChange("targetDate")}
               required
+            />
+          </div>
+
+          <div className="CreateLearning-field">
+            <label>Tags</label>
+            <TagInput
+              tags={form.tags}
+              onChange={(tags) => setForm((prev) => ({ ...prev, tags }))}
             />
           </div>
 

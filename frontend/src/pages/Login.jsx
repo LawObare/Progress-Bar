@@ -7,16 +7,23 @@
 */
 
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 import Button from "../components/Button";
 import "../styles/auth.css";
 
 function Login() {
+  const { login } = useAuth();
+  const navigate = useNavigate();
   const [rememberMe, setRememberMe] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const fd = new FormData(e.target);
     /* API: POST /auth/login */
+    const user = { name: fd.get("email").split("@")[0] };
+    login(user);
+    navigate("/home");
   };
 
   return (
@@ -24,18 +31,18 @@ function Login() {
       <div className="Auth-card">
         <div className="Auth-brand">
           <h1 className="Auth-logo">Progress Bar</h1>
-          <p className="Auth-tagline">Build. Learn. Grow.</p>
+          <p className="Auth-tagline">Your developer operating system.</p>
         </div>
 
         <form onSubmit={handleSubmit} className="Auth-form">
           <div className="Auth-field">
             <label>Email</label>
-            <input type="email" placeholder="you@example.com" required />
+            <input type="email" name="email" placeholder="you@example.com" required />
           </div>
 
           <div className="Auth-field">
             <label>Password</label>
-            <input type="password" placeholder="Enter your password" required />
+            <input type="password" name="password" placeholder="Enter your password" required />
           </div>
 
           <label className="Auth-remember">

@@ -1,0 +1,88 @@
+.QuickCreate-fab {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(47, 129, 247, 0.3);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  z-index: 50;
+  line-height: 1;
+}
+
+.QuickCreate-fab:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 24px rgba(47, 129, 247, 0.4);
+}
+
+.QuickCreate {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 50;
+  min-width: 360px;
+}
+
+.QuickCreate-form {
+  display: flex;
+  gap: var(--space-sm);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.QuickCreate-input {
+  flex: 1;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.85rem;
+  padding: 8px 12px;
+  outline: none;
+}
+
+.QuickCreate-input:focus {
+  border-color: var(--primary);
+}
+
+.QuickCreate-submit {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 8px 14px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.QuickCreate-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.QuickCreate-cancel {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  padding: 8px 12px;
+  font-size: 0.82rem;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.QuickCreate-cancel:hover {
+  color: var(--text);
+}

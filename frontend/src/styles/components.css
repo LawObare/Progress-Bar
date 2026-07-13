@@ -153,8 +153,48 @@
   cursor: pointer;
   background: none;
   border: none;
+  font-family: inherit;
 }
 
 .SectionHeader-action:hover {
   text-decoration: underline;
+}
+
+.SectionHeader-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+/* ─── Page Insight (guiding question + stats) ─── */
+.PageInsight {
+  margin-bottom: var(--space-lg);
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.PageInsight-question {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.PageInsight-stats {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-xs);
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.PageInsight-stat strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.PageInsight-sep {
+  color: var(--border);
+  margin: 0 2px;
 }

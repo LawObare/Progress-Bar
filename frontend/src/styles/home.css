@@ -1,255 +1,229 @@
 /* =====================================================
-   HOME PAGE (Dashboard)
+   HOME PAGE (Developer Dashboard / Terminal Style)
    ===================================================== */
 
 .Home {
-  max-width: 800px;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md);
+  font-family: var(--font-mono), monospace;
 }
 
-/* ─── Greeting ─── */
-.Home-greeting {
+.Home-header {
   margin-bottom: var(--space-lg);
 }
 
-.Home-greeting h1 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: var(--space-xs);
-}
-
-.Home-greeting p {
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-}
-
-/* ─── Task Card ─── */
-.TaskCard {
-  margin-bottom: var(--space-sm);
-}
-
-.TaskCard:last-child {
-  margin-bottom: 0;
-}
-
-.TaskCard-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: var(--space-xs);
-}
-
-.TaskCard-title {
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--text);
-}
-
-.TaskCard-priority {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  padding: 2px 6px;
-  border-radius: 4px;
+.Home-greeting {
+  font-size: 1.25rem;
   font-weight: 600;
-}
-
-.TaskCard-priority--urgent {
-  background: color-mix(in srgb, var(--danger) 20%, transparent);
-  color: var(--danger);
-}
-
-.TaskCard-priority--high {
-  background: color-mix(in srgb, var(--warning) 20%, transparent);
-  color: var(--warning);
-}
-
-.TaskCard-priority--medium {
-  background: color-mix(in srgb, var(--primary) 20%, transparent);
-  color: var(--primary);
-}
-
-.TaskCard-priority--low {
-  background: color-mix(in srgb, var(--text-secondary) 20%, transparent);
-  color: var(--text-secondary);
-}
-
-.TaskCard-meta {
-  display: flex;
-  gap: var(--space-md);
-  font-size: 0.78rem;
-  color: var(--text-secondary);
+  color: var(--text);
   margin-bottom: var(--space-xs);
 }
 
-.TaskCard-category {
-  color: var(--primary);
-}
-
-/* ─── Attention Card ─── */
-.AttentionCard {
-  margin-bottom: var(--space-sm);
-  border-color: color-mix(in srgb, var(--danger) 30%, var(--border));
-}
-
-.AttentionCard:last-child {
-  margin-bottom: 0;
-}
-
-.AttentionCard-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: var(--space-sm);
-}
-
-.AttentionCard-title {
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--text);
-}
-
-.AttentionCard-overdue {
-  font-size: 0.75rem;
-  color: var(--danger);
-  font-weight: 500;
-}
-
-/* ─── Routine Card ─── */
-.RoutineCard {
-  margin-bottom: var(--space-sm);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
-}
-
-.RoutineCard:last-child {
-  margin-bottom: 0;
-}
-
-.RoutineCard-check {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-sm);
-  cursor: pointer;
-}
-
-.RoutineCard-checkbox {
-  margin-top: 3px;
-  width: 16px;
-  height: 16px;
-  accent-color: var(--primary);
-  cursor: pointer;
-}
-
-.RoutineCard-body {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.RoutineCard-title {
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--text);
-}
-
-.RoutineCard-meta {
-  font-size: 0.78rem;
-  color: var(--text-secondary);
-}
-
-.RoutineCard-next {
-  font-size: 0.75rem;
-  color: var(--text-secondary);
-  margin-left: calc(var(--space-sm) + 16px);
-}
-
-/* ─── Event Card ─── */
-.EventCard {
-  margin-bottom: var(--space-sm);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.EventCard:last-child {
-  margin-bottom: 0;
-}
-
-.EventCard-left {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.EventCard-name {
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--text);
-}
-
-.EventCard-date {
-  font-size: 0.78rem;
-  color: var(--text-secondary);
-}
-
-.EventCard-days {
-  font-size: 0.78rem;
-  color: var(--primary);
-  font-weight: 500;
-  white-space: nowrap;
-}
-
-/* ─── Dev Wisdom ─── */
-.DevWisdom {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-md);
-  background: color-mix(in srgb, var(--primary) 8%, var(--surface));
-  border-color: color-mix(in srgb, var(--primary) 20%, var(--border));
-}
-
-.DevWisdom-icon {
-  font-size: 1.3rem;
-  line-height: 1;
-}
-
-.DevWisdom-quote {
+.Home-motto {
   font-size: 0.9rem;
-  color: var(--text);
+  color: var(--text-secondary);
   font-style: italic;
-  line-height: 1.5;
 }
 
-/* ─── Home Section spacing ─── */
+.Home-divider {
+  color: var(--border);
+  font-size: 0.8rem;
+  margin: var(--space-lg) 0;
+  user-select: none;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 .Home-section {
   margin-bottom: var(--space-xl);
 }
 
-.Home-section:last-child {
-  margin-bottom: 0;
-}
-
-.Home-empty-card {
-  text-align: center;
-  padding: var(--space-xl);
-}
-
-.Home-empty-line {
+.Home-section-title {
   font-size: 1rem;
+  font-weight: 600;
   color: var(--text);
-  margin-bottom: var(--space-xs);
+  margin-bottom: var(--space-md);
 }
 
-.Home-empty-sub {
+/* ─── Terminal Card Style ─── */
+.Home-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-sm);
+  background: var(--surface);
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.Home-card:hover {
+  border-color: var(--primary);
+}
+
+.Home-card-content {
+  padding: var(--space-md);
+}
+
+.Home-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-sm);
+  gap: var(--space-md);
+}
+
+.Home-card-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.Home-card-category {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-transform: capitalize;
+  background: var(--background);
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}
+
+.Home-card-stat {
   font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.Home-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--space-sm);
+}
+
+.Home-card-meta {
+  font-size: 0.75rem;
   color: var(--text-secondary);
 }
 
-.Home-wisdom {
+.Home-card-warning {
+  font-size: 0.75rem;
+  color: var(--warning);
+}
+
+.Home-card-toggle {
+  background: none;
+  border: none;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.8rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background var(--transition-fast);
+}
+
+.Home-card-toggle:hover {
+  background: var(--background);
+}
+
+.Home-card-toggle.is-complete {
+  color: var(--success);
+}
+
+.Home-card-warning.is-overdue {
+  color: var(--danger);
+  font-weight: 600;
+}
+
+.Home-card-chevron {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+}
+
+.Home-card-detail {
+  padding: 0 var(--space-md) var(--space-md);
+  border-top: 1px dashed var(--border);
+  background: color-mix(in srgb, var(--background) 40%, var(--surface));
+}
+
+.Home-card-sub-section {
+  margin-top: var(--space-md);
+}
+
+.Home-card-sub-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: var(--space-sm);
+}
+
+.Home-card-task {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 0.8rem;
+  color: var(--text);
+  margin-bottom: 4px;
+  cursor: pointer;
+}
+
+.Home-card-task input {
+  accent-color: var(--primary);
+}
+
+.Home-card-task--done {
+  text-decoration: line-through;
+  color: var(--text-secondary);
+}
+
+.Home-card-milestone {
+  margin-bottom: var(--space-sm);
+}
+
+.Home-card-milestone-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  margin-bottom: 4px;
+}
+
+/* ─── Empty States ─── */
+.Home-empty {
   font-size: 0.85rem;
   color: var(--text-secondary);
   font-style: italic;
-  text-align: center;
+  padding: var(--space-sm) 0;
+}
+
+/* ─── Wisdom Section ─── */
+.Home-wisdom {
+  margin-top: var(--space-xl);
+  padding-bottom: var(--space-xl);
+}
+
+.Home-wisdom-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: var(--space-sm);
+}
+
+.Home-wisdom-text {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .Home {
+    padding: var(--space-lg) var(--space-md);
+  }
 }

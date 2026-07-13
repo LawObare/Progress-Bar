@@ -5,6 +5,9 @@ import {
   Navigate,
  } from "react-router-dom";
  
+import { AuthProvider } from "./context/AuthContext";
+import { SearchProvider } from "./context/SearchContext";
+import { DataProvider } from "./context/DataContext";
 import Career from "./pages/Career";
 import DashboardLayout from "./layouts/DashboardLayout";
 import Home from "./pages/Home";
@@ -21,7 +24,9 @@ import Settings from "./pages/Settings";
 
 function App() {
   return (
-    <>
+    <AuthProvider>
+      <SearchProvider>
+        <DataProvider>
       <BrowserRouter>
         <Routes>
           {/*Public Route*/}
@@ -44,7 +49,9 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
-    </>
+        </DataProvider>
+      </SearchProvider>
+    </AuthProvider>
   );
 }
 

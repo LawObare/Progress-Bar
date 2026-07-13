@@ -68,6 +68,13 @@
   margin: var(--space-sm) 0;
 }
 
+.NavItem-icon {
+  width: 20px;
+  text-align: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
 .NavItem-label {
   font-weight: 500;
 }

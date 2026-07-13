@@ -46,6 +46,9 @@ function MyWhy() {
 
   return (
     <div className="MyWhy">
+      <div className="PageInsight">
+        <p className="PageInsight-question">Why does any of this matter?</p>
+      </div>
       <div className="SectionHeader">
         <h2 className="SectionHeader-title">My Why</h2>
         {editing ? (

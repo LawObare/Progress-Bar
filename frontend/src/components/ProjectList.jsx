@@ -1,28 +1,18 @@
-/*
-  Shared component for both Personal Projects and Client Projects.
-
-  API: GET /projects?type=personal|client
-  API: GET /projects/:id         → includes milestones & tasks
-  API: POST /projects/:id/milestones
-  API: PATCH /tasks/:id          → { completed: true/false }
-
-  Props:
-    projects: Project[]
-    setProjects: fn              — to update milestones
-    title: string
-    onAddProject: fn
-*/
-
-import { useState } from "react";
-import Card from "./Card";
+import { useState, useRef } from "react";
+import { ProjectCard } from "./ProjectCard";
 import Button from "./Button";
 import ProgressBar from "./ProgressBar";
 import StatusDot from "./StatusDot";
-import AddMilestone from "./AddMilestone";
+import Tag from "./Tag";
 
-function ProjectList({ projects, setProjects, title, emptyMessage, onAddProject }) {
+function ProjectList({ projects, onUpdateProject, emptyMessage, onAddProject, view = "cards", searchQuery = "" }) {
   const [expandedId, setExpandedId] = useState(null);
   const [addingMilestoneFor, setAddingMilestoneFor] = useState(null);
+  const idCounter = useRef(0);
+  const nextId = () => `id-${++idCounter.current}`;
+  const [dragIndex, setDragIndex] = useState(null);
+  const [newTaskText, setNewTaskText] = useState({});
+  const [newMsTaskText, setNewMsTaskText] = useState({});
 
   const toggleExpand = (id) => {
     setExpandedId((prev) => (prev === id ? null : id));
@@ -30,9 +20,8 @@ function ProjectList({ projects, setProjects, title, emptyMessage, onAddProject 
   };
 
   const handleAddMilestone = (projectId, milestoneData) => {
-    /* API: POST /projects/:id/milestones */
     const milestone = {
-      id: `ms-${Date.now()}`,
+      id: `ms-${nextId()}`,
       name: milestoneData.name,
       deadline: new Date(milestoneData.deadline).toLocaleDateString("en-GB", {
         day: "numeric", month: "short", year: "numeric",
@@ -40,181 +29,195 @@ function ProjectList({ projects, setProjects, title, emptyMessage, onAddProject 
       progress: { completed: 0, total: milestoneData.tasks.length },
       expanded: true,
       tasks: milestoneData.tasks.map((name, i) => ({
-        id: `task-${Date.now()}-${i}`,
+        id: `task-${nextId()}-${i}`,
         name,
         completed: false,
       })),
     };
-
-    setProjects((prev) =>
-      prev.map((p) =>
-        p.id === projectId
-          ? { ...p, milestones: [...p.milestones, milestone] }
-          : p
-      )
-    );
+    const project = projects.find((p) => p.id === projectId);
+    onUpdateProject(projectId, { milestones: [...(project?.milestones || []), milestone] });
     setAddingMilestoneFor(null);
   };
 
-  return (
-    <div className="ProjectList">
-      <div className="SectionHeader">
-        <h2 className="SectionHeader-title">{title}</h2>
-        <Button size="sm" onClick={onAddProject}>
-          + Project
-        </Button>
-      </div>
-
-      {projects.length === 0 ? (
-        <div className="ProjectList-empty">
-          <p className="ProjectList-empty-text">{emptyMessage || "No projects yet."}</p>
-          <Button size="sm" onClick={onAddProject}>+ Create Project</Button>
-        </div>
-      ) : (
-        <div className="ProjectList-grid">
-          {projects.map((project) => {
-            const isOpen = expandedId === project.id;
-            const isAdding = addingMilestoneFor === project.id;
-
-            return (
-              <Card
-                key={project.id}
-                className={`ProjectCard ${isOpen ? "ProjectCard--expanded" : ""}`}
-              >
-                {/* ─── Card Header ─── */}
-                <div
-                  className="ProjectCard-header"
-                  onClick={() => toggleExpand(project.id)}
-                  role="button"
-                  tabIndex={0}
-                  onKeyDown={(e) => e.key === "Enter" && toggleExpand(project.id)}
-                >
-                  <div className="ProjectCard-header-left">
-                    <StatusDot color={project.statusIndicator} />
-                    <div>
-                      <span className="ProjectCard-title">{project.title}</span>
-                      <span className="ProjectCard-deadline">
-                        Deadline: {project.deadline}
-                      </span>
-                    </div>
-                  </div>
-                  <div className="ProjectCard-header-right">
-                    <span className="ProjectCard-milestone-count">
-                      {
-                        project.milestones.filter((m) =>
-                          m.tasks.length > 0 && m.tasks.every((t) => t.completed)
-                        ).length
-                      }
-                      /{project.milestones.length} milestones
-                    </span>
-                    <span className="ProjectCard-chevron">
-                      {isOpen ? "▼" : "▶"}
-                    </span>
-                  </div>
-                </div>
-
-                {/* ─── Expanded Detail ─── */}
-                {isOpen && (
-                  <div className="ProjectCard-detail">
-                    <p className="ProjectCard-desc">{project.description}</p>
-
-                    <div className="ProjectCard-milestones-header">
-                      <h4>Milestones</h4>
-                      <Button
-                        size="sm"
-                        variant="ghost"
-                        onClick={() => setAddingMilestoneFor(project.id)}
-                      >
-                        + Add
-                      </Button>
-                    </div>
-
-                    {project.milestones.map((ms) => (
-                      <MilestoneRow key={ms.id} milestone={ms} />
-                    ))}
-
-                    {isAdding ? (
-                      <AddMilestone
-                        onSubmit={(data) => handleAddMilestone(project.id, data)}
-                        onCancel={() => setAddingMilestoneFor(null)}
-                      />
-                    ) : (
-                      <Button
-                        size="sm"
-                        variant="ghost"
-                        onClick={() => setAddingMilestoneFor(project.id)}
-                        className="ProjectCard-add-milestone"
-                      >
-                        + Add Milestone
-                      </Button>
-                    )}
-                  </div>
-                )}
-              </Card>
-            );
-          })}
-        </div>
-      )}
-    </div>
-  );
-}
-
-/*
-  Milestone row with collapsible tasks.
-  API: GET /milestones/:id    → { tasks }
-  API: PUT /tasks/:id         → { completed }
-*/
-function MilestoneRow({ milestone }) {
-  const [expanded, setExpanded] = useState(milestone.expanded);
-  const [tasks, setTasks] = useState(milestone.tasks);
-
-  const toggleTask = (taskId) => {
-    /* API: PUT /tasks/:id { completed: !current } */
-    setTasks((prev) =>
-      prev.map((t) =>
-        t.id === taskId ? { ...t, completed: !t.completed } : t
-      )
-    );
+  const handleAddProjectTask = (projectId) => {
+    const text = newTaskText[projectId]?.trim();
+    if (!text) return;
+    const project = projects.find((p) => p.id === projectId);
+    const task = { id: `pt-${nextId()}`, name: text, completed: false };
+    onUpdateProject(projectId, { tasks: [...(project?.tasks || []), task] });
+    setNewTaskText((prev) => ({ ...prev, [projectId]: "" }));
   };
 
-  return (
-    <div className="Milestone">
-      <div
-        className="Milestone-header"
-        onClick={() => setExpanded((prev) => !prev)}
-        role="button"
-        tabIndex={0}
-        onKeyDown={(e) => e.key === "Enter" && setExpanded((prev) => !prev)}
-      >
-        <span className="Milestone-chevron">{expanded ? "▼" : "▶"}</span>
-        <span className="Milestone-name">{milestone.name}</span>
-        <ProgressBar
-          completed={milestone.progress.completed}
-          total={milestone.progress.total}
-        />
-        <span className="Milestone-deadline">{milestone.deadline}</span>
-      </div>
+  const handleToggleProjectTask = (projectId, taskId) => {
+    const project = projects.find((p) => p.id === projectId);
+    const tasks = (project?.tasks || []).map((t) =>
+      t.id === taskId ? { ...t, completed: !t.completed } : t
+    );
+    onUpdateProject(projectId, { tasks });
+  };
 
-      {expanded && (
-        <div className="Milestone-tasks">
-          {tasks.map((task) => (
-            <label key={task.id} className="Milestone-task">
-              <input
-                type="checkbox"
-                checked={task.completed}
-                onChange={() => toggleTask(task.id)}
-              />
-              <span className={task.completed ? "Milestone-task--done" : ""}>
-                {task.name}
-              </span>
-            </label>
-          ))}
-          {tasks.length === 0 && (
-            <span className="Milestone-empty">No tasks yet</span>
-          )}
-          <Button size="sm" variant="ghost">+ Add Task</Button>
+  const handleAddMilestoneTask = (projectId, milestoneId) => {
+    const key = `${projectId}-${milestoneId}`;
+    const text = newMsTaskText[key]?.trim();
+    if (!text) return;
+    const project = projects.find((p) => p.id === projectId);
+    const milestone = project?.milestones.find((m) => m.id === milestoneId);
+    if (!milestone) return;
+    const task = { id: `mt-${nextId()}`, name: text, completed: false };
+    const updatedTasks = [...(milestone.tasks || []), task];
+    const milestones = (project?.milestones || []).map((m) =>
+      m.id === milestoneId
+        ? { ...m, tasks: updatedTasks, progress: { completed: m.progress?.completed || 0, total: updatedTasks.length } }
+        : m
+    );
+    onUpdateProject(projectId, { milestones });
+    setNewMsTaskText((prev) => ({ ...prev, [key]: "" }));
+  };
+
+  const handleToggleMilestoneTask = (projectId, milestoneId, taskId) => {
+    const project = projects.find((p) => p.id === projectId);
+    const milestone = project?.milestones.find((m) => m.id === milestoneId);
+    if (!milestone) return;
+    const tasks = (milestone.tasks || []).map((t) =>
+      t.id === taskId ? { ...t, completed: !t.completed } : t
+    );
+    const completed = tasks.filter((t) => t.completed).length;
+    const milestones = (project?.milestones || []).map((m) =>
+      m.id === milestoneId ? { ...m, tasks, progress: { completed, total: tasks.length } } : m
+    );
+    onUpdateProject(projectId, { milestones });
+  };
+
+  const handleDragStart = (index) => setDragIndex(index);
+
+  const handleDragOver = (e, index) => {
+    e.preventDefault();
+    if (dragIndex === null || dragIndex === index) return;
+    const reordered = [...projects];
+    const [item] = reordered.splice(dragIndex, 1);
+    reordered.splice(index, 0, item);
+    reordered.forEach((p, i) => onUpdateProject(p.id, { order: i }));
+    setDragIndex(index);
+  };
+
+  const handleDragEnd = () => setDragIndex(null);
+
+  const filtered = projects.filter((p) =>
+    !searchQuery || p.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  if (filtered.length === 0) {
+    return (
+      <div className="ProjectList">
+        <div className="ProjectList-empty">
+          <p className="ProjectList-empty-text">{projects.length === 0 ? (emptyMessage || "No projects yet.") : "No matches found."}</p>
+          <Button size="sm" onClick={onAddProject}>+ Create Project</Button>
         </div>
-      )}
+      </div>
+    );
+  }
+
+  if (view === "list") {
+    return (
+      <div className="ProjectList">
+        <div className="ProjectList-table">
+          <div className="ProjectList-table-header">
+            <span className="ProjectList-table-cell ProjectList-table-cell--wide">Name</span>
+            <span className="ProjectList-table-cell">Deadline</span>
+            <span className="ProjectList-table-cell">Progress</span>
+            <span className="ProjectList-table-cell">Status</span>
+          </div>
+          {filtered.map((project, i) => (
+            <div
+              key={project.id}
+              className="ProjectList-table-row"
+              draggable
+              onDragStart={() => handleDragStart(i)}
+              onDragOver={(e) => handleDragOver(e, i)}
+              onDragEnd={handleDragEnd}
+              onClick={() => toggleExpand(project.id)}
+            >
+              <span className="ProjectList-table-cell ProjectList-table-cell--wide">
+                <span className="ProjectList-table-title">{project.title}</span>
+                {project.tags?.length > 0 && (
+                  <span className="ProjectList-table-tags">
+                    {project.tags.map((t) => (<Tag key={t} label={t} />))}
+                  </span>
+                )}
+              </span>
+              <span className="ProjectList-table-cell">{project.deadline}</span>
+              <span className="ProjectList-table-cell">
+                <ProgressBar completed={project.progress?.completed || 0} total={project.progress?.total || 0} />
+              </span>
+              <span className="ProjectList-table-cell">
+                <StatusDot color={project.statusIndicator} />
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  if (view === "table") {
+    const cols = ["Name", "Deadline", "Milestones", "Progress", "Tags", "Status"];
+    return (
+      <div className="ProjectList">
+        <table className="ProjectList-table-view">
+          <thead>
+            <tr>{cols.map((c) => (<th key={c}>{c}</th>))}</tr>
+          </thead>
+          <tbody>
+            {filtered.map((project, i) => (
+              <tr key={project.id} draggable onDragStart={() => handleDragStart(i)} onDragOver={(e) => handleDragOver(e, i)} onDragEnd={handleDragEnd}>
+                <td>{project.title}</td>
+                <td>{project.deadline}</td>
+                <td>{project.milestones?.filter((m) => m.tasks?.every((t) => t.completed)).length || 0}/{project.milestones?.length || 0}</td>
+                <td><ProgressBar completed={project.progress?.completed || 0} total={project.progress?.total || 0} /></td>
+                <td>{project.tags?.length > 0 && (<div className="ProjectList-table-tags">{project.tags.map((t) => (<Tag key={t} label={t} />))}</div>)}</td>
+                <td><StatusDot color={project.statusIndicator} /></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    );
+  }
+
+  return (
+    <div className="ProjectList">
+      <div className="ProjectList-grid">
+        {filtered.map((project) => {
+          const isOpen = expandedId === project.id;
+          const isAdding = addingMilestoneFor === project.id;
+
+          return (
+            <ProjectCard
+              key={project.id}
+              project={project}
+              isExpanded={isOpen}
+              onToggleExpand={() => toggleExpand(project.id)}
+              onAddProjectTask={() => handleAddProjectTask(project.id)}
+              onToggleProjectTask={(taskId) => handleToggleProjectTask(project.id, taskId)}
+              onAddMilestoneTask={(milestoneId) => handleAddMilestoneTask(project.id, milestoneId)}
+              onToggleMilestoneTask={(milestoneId, taskId) => handleToggleMilestoneTask(project.id, milestoneId, taskId)}
+              onSubmitAddMilestone={(data) => handleAddMilestone(project.id, data)}
+              onCancelAddMilestone={() => setAddingMilestoneFor(null)}
+              newProjectTaskText={newTaskText[project.id] || ""}
+              onNewProjectTaskTextChange={(val) => setNewTaskText((prev) => ({ ...prev, [project.id]: val }))}
+              newMilestoneTaskTexts={Object.fromEntries(
+                (project.milestones || []).map((ms) => [`${project.id}-${ms.id}`, newMsTaskText[`${project.id}-${ms.id}`] || ""])
+              )}
+              onNewMilestoneTaskTextChange={(milestoneId, val) =>
+                setNewMsTaskText((prev) => ({ ...prev, [`${project.id}-${milestoneId}`]: val }))
+              }
+              onAddMilestone={() => setAddingMilestoneFor(project.id)}
+              showAddMilestoneForm={isAdding}
+              canEdit={true}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }
